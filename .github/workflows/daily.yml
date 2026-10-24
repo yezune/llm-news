@@ -18,8 +18,9 @@ on:
 permissions:
   contents: write
 
+# period-reports와 같은 그룹: 결과 커밋이 서로 겹치지 않게 순서대로 실행한다
 concurrency:
-  group: daily-curation
+  group: repo-write
   cancel-in-progress: false
 
 jobs:
@@ -59,10 +60,12 @@ jobs:
         run: |
           git config user.name "llm-news-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add digests data state README.md
+          mkdir -p reports
+          git add digests data state reports README.md
           if git diff --cached --quiet; then
             echo "변경 없음"
             exit 0
           fi
           git commit -m "daily: $(TZ=Asia/Seoul date +%F) 큐레이션·검증"
+          git pull --rebase
           git push

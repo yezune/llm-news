@@ -1,6 +1,7 @@
 """llm-news 명령줄.
 
 llm-news daily [--date YYYY-MM-DD] [--force]   일일 큐레이션+검증 (하루 1회)
+llm-news report week|month|year [--period 2026-W43]   기간 리포트 (기본: 오늘이 속한 기간)
 llm-news ledger [--check]                      claims/ 명세만 검증 (CI용)
 llm-news verify-model REPO --params 7B [--active 1B] [--context 128K] [--tokens 15T]
 llm-news verify-math --lhs ... --rhs ... --var x=positive
@@ -18,8 +19,9 @@ from datetime import date
 from pathlib import Path
 
 from .models import Claim, Verdict
-from .pipeline import Paths, run_daily, run_ledger
+from .pipeline import Paths, load_config, run_daily, run_ledger, run_reports, today, update_readme_reports
 from .render import ICON, LABEL
+from .reports import KINDS, parse_period, period_of, write_report
 from .verify import verify
 from .verify.algorithms import ALGORITHMS, load_reproductions
 
@@ -44,6 +46,10 @@ def main(argv: list[str] | None = None) -> int:
     d = sub.add_parser("daily", help="일일 큐레이션 + 검증")
     d.add_argument("--date", type=date.fromisoformat)
     d.add_argument("--force", action="store_true", help="같은 날짜 다이제스트가 있어도 다시 생성")
+
+    rp = sub.add_parser("report", help="주간·월간·연간 리포트 (data/ 집계)")
+    rp.add_argument("kind", choices=KINDS)
+    rp.add_argument("--period", help="2026-W43 · 2026-10 · 2026 형식 (기본: 오늘이 속한 기간)")
 
     lg = sub.add_parser("ledger", help="claims/ 명세 검증")
     lg.add_argument("--check", action="store_true", help="기대 판정과 다르면 실패(종료 코드 1)")
@@ -82,6 +88,20 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "daily":
         out = run_daily(args.root, args.date, args.force)
         print(f"생성됨: {out}" if out else "오늘 다이제스트가 이미 있어 건너뜀 (--force로 재생성)")
+        # 다이제스트를 건너뛴 날에도 끝난 기간의 리포트는 따라잡는다
+        for path in run_reports(args.root, args.date):
+            print(f"리포트 확정: {path}")
+        return 0
+
+    if args.cmd == "report":
+        config = load_config(paths)
+        now = today(config)
+        try:
+            period = parse_period(args.kind, args.period) if args.period else period_of(args.kind, now)
+        except ValueError as e:
+            ap.error(f"--period: {e}")
+        print(f"생성됨: {write_report(args.root, period, config, now)}")
+        update_readme_reports(paths)
         return 0
 
     if args.cmd == "ledger":

@@ -12,6 +12,10 @@
 - [2026-10-23](digests/2026/2026-10-23.md)
 <!-- LATEST:END -->
 
+<!-- REPORTS:START -->
+**기간 리포트:** 주간 [2026-W43](reports/weekly/2026/2026-W43.md) ⏳ · 월간 [2026-10](reports/monthly/2026/2026-10.md) ⏳ · 연간 [2026](reports/yearly/2026.md) ⏳
+<!-- REPORTS:END -->
+
 ## 무엇을 어떻게 검증하나
 
 | 주장 종류 | 계층 | 방법 | 예 |
@@ -37,6 +41,9 @@ uv sync --extra dev               # Python 3.11+, 의존성은 uv.lock으로 고
 uv run pytest                     # 오프라인 테스트 (수학·알고리즘 대장 전체 재검증 포함)
 uv run llm-news daily             # 오늘(Asia/Seoul) 큐레이션 + 검증 → digests/, data/
 uv run llm-news daily --date 2026-10-23 --force   # 특정 날짜 재생성
+
+uv run llm-news report week       # 이번 주(진행 중) 주간 리포트 미리 보기 → reports/
+uv run llm-news report month --period 2026-10     # 특정 월 · year --period 2026 연간
 ```
 
 단건 검증 도구:
@@ -67,6 +74,22 @@ uv run llm-news algorithms        # 등록된 알고리즘 재현 목록
 - **로컬**: `scripts/daily.sh`를 cron이나 launchd에 등록합니다.
 - 같은 날짜 다이제스트가 이미 있으면 파이프라인이 스스로 건너뛰므로, 재시도해도 하루 1건만 생깁니다.
 
+## 주간 · 월간 · 연간 리포트
+
+일일 실행이 끝날 때마다 **이미 끝난 기간**(ISO 주 월~일, 달력 월, 연도)의 리포트를 확정합니다.
+월요일 실행이 지난주를, 매월 1일 실행이 지난달을, 1월 1일 실행이 지난해를 확정하고,
+실행을 놓친 날이 있어도 다음 실행에서 따라잡습니다. 리포트는 `data/`의 일일 기록만 다시 모으므로
+새로 수집하거나 재검증하지 않고, 판정과 증거(커밋 sha)는 그날 기록 그대로입니다.
+
+- 📈 흐름: 주간은 일별, 월간은 주별, 연간은 월별 소식·주장·판정 수
+- 🏆 주요 소식: 섹션별 점수 상위 (주 5 · 월 10 · 년 20건)
+- ❌ 반박된 주장 전체, 🔬 검증 계층별 판정, 🧩 많이 다룬 주제, 🔗 여러 소식에 연결된 HF 저장소
+- 🧮 검증 대장 드리프트(기대 판정에서 벗어난 명세와 그 기간), ⚠️ 출처별 수집 오류 일수
+
+진행 중인 기간은 `llm-news report week|month|year`로 미리 볼 수 있습니다(서버에서는 Actions의 `period-reports` 수동 실행). 이렇게 만든 리포트에는 ⏳ 표시가 붙고,
+기간이 끝나면 일일 실행이 확정본으로 다시 만듭니다. 과거 날짜를 `daily --force`로 재생성했다면
+`report <종류> --period <기간>`으로 해당 리포트도 다시 만드세요.
+
 ## 저장소 구조
 
 ```
@@ -83,10 +106,12 @@ src/llm_news/
     params.py              config.json → 파라미터 수 독립 계산
     tensors.py             safetensors 헤더(Range)만 읽어 텐서 집계
   pipeline.py · cli.py     일일 실행 · 명령줄
+  reports.py               주간·월간·연간 리포트 (data/ 집계)
 claims/                    사람이 쓰는 검증 명세 (검증 대장)
 reproductions/             새 논문 알고리즘 재현 플러그인
 digests/YYYY/YYYY-MM-DD.md 일일 다이제스트 (사람용)
 data/YYYY/YYYY-MM-DD.json  같은 내용의 구조화 기록 (주장·판정·증거·커밋 sha)
+reports/weekly/YYYY/YYYY-Www.md · monthly/YYYY/YYYY-MM.md · yearly/YYYY.md   기간 리포트
 state/seen.json            이미 실린 소식 (날짜 간 중복 방지)
 ```
 

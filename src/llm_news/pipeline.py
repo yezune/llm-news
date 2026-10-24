@@ -18,6 +18,7 @@ from .curate import curate
 from .extract import extract
 from .models import Item
 from .render import render_digest, stats_line, verdict_counts
+from .reports import KIND_NAME, due_periods, is_final, latest_reports, write_report
 from .sources import fetch_all
 from .sources.hf_papers import linked_artifacts
 from .specs import SpecResult, run_specs
@@ -28,6 +29,8 @@ log = logging.getLogger(__name__)
 
 README_START = "<!-- LATEST:START -->"
 README_END = "<!-- LATEST:END -->"
+REPORTS_START = "<!-- REPORTS:START -->"
+REPORTS_END = "<!-- REPORTS:END -->"
 
 
 class Paths:
@@ -100,22 +103,46 @@ def _ledger_json(results: list[SpecResult]) -> list[dict[str, Any]]:
     ]
 
 
-def update_readme(paths: Paths, run_date: str, summary: str) -> None:
+def _replace_block(paths: Paths, start: str, end: str, body: str) -> None:
     if not paths.readme.exists():
         return
     text = paths.readme.read_text(encoding="utf-8")
-    if README_START not in text:
+    if start not in text:
         return
+    block = f"{start}\n{body}\n{end}"
+    text = re.sub(re.escape(start) + ".*?" + re.escape(end), lambda _: block, text, flags=re.S)
+    paths.readme.write_text(text, encoding="utf-8")
+
+
+def update_readme(paths: Paths, run_date: str, summary: str) -> None:
     digests = sorted(paths.root.glob("digests/*/*.md"), reverse=True)[:14]
     recent = "\n".join(f"- [{p.stem}](digests/{p.parent.name}/{p.name})" for p in digests)
-    block = (
-        f"{README_START}\n"
+    body = (
         f"**최신 다이제스트: [{run_date}](digests/{run_date[:4]}/{run_date}.md)** — {summary}\n\n"
-        f"최근 14일:\n\n{recent}\n"
-        f"{README_END}"
+        f"최근 14일:\n\n{recent}"
     )
-    text = re.sub(re.escape(README_START) + ".*?" + re.escape(README_END), block, text, flags=re.S)
-    paths.readme.write_text(text, encoding="utf-8")
+    _replace_block(paths, README_START, README_END, body)
+
+
+def update_readme_reports(paths: Paths) -> None:
+    latest = latest_reports(paths.root)
+    links = [
+        f"{KIND_NAME[kind]} [{p.stem}]({p.relative_to(paths.root).as_posix()})"
+        + ("" if is_final(p) else " ⏳")
+        for kind, p in latest.items()
+    ]
+    body = "**기간 리포트:** " + (" · ".join(links) if links else "아직 없음 (기간이 끝나면 자동 생성)")
+    _replace_block(paths, REPORTS_START, REPORTS_END, body)
+
+
+def run_reports(root: Path, run_date: date | None = None) -> list[Path]:
+    """끝난 기간(주·월·년)의 리포트를 확정한다. 이미 확정된 것은 건드리지 않으므로 매일 불러도 된다."""
+    paths = Paths(root)
+    config = load_config(paths)
+    run_date = run_date or today(config)
+    out = [write_report(root, p, config, run_date) for p in due_periods(root, run_date)]
+    update_readme_reports(paths)
+    return out
 
 
 def run_daily(root: Path, run_date: date | None = None, force: bool = False) -> Path | None:
