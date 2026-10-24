@@ -1,0 +1,14 @@
+title: 디코딩·미세조정 알고리즘 주장
+claims:
+  - kind: algorithm
+    statement: "추측 디코딩의 거절 샘플링은 목표 모델 분포를 정확히 보존한다 (arXiv:2211.17192)"
+    params: {name: speculative_sampling_exact, vocab: 64, draft_quality: 0.3}
+    expected: verified
+  - kind: algorithm
+    statement: "(의도적 반례) 거절 시 잔차 분포 대신 목표 분포 p에서 다시 뽑아도 분포가 보존된다"
+    params: {name: speculative_resample_from_target, vocab: 64, draft_quality: 0.3}
+    expected: refuted
+  - kind: algorithm
+    statement: "LoRA 병합 가중치는 어댑터 경로와 같은 출력을 내고 추가 파라미터는 r(d_in+d_out)개다 (arXiv:2106.09685)"
+    params: {name: lora_merge_equivalence, d_in: 128, d_out: 96, rank: 8, alpha: 16.0}
+    expected: verified

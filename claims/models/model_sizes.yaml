@@ -1,0 +1,30 @@
+title: 공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)
+claims:
+  - kind: hf_model_params
+    statement: Qwen2.5-0.5B는 0.49B 파라미터
+    params: {repo: Qwen/Qwen2.5-0.5B, value: 0.49B}
+    expected: verified
+  - kind: hf_model_params
+    statement: "Mixtral 8x7B는 총 47B 파라미터 (arXiv:2401.04088)"
+    params: {repo: mistralai/Mixtral-8x7B-v0.1, value: 47B, scope: total}
+    expected: verified
+  - kind: hf_model_params
+    statement: "Mixtral 8x7B는 토큰당 13B 파라미터만 활성화한다 (arXiv:2401.04088)"
+    params: {repo: mistralai/Mixtral-8x7B-v0.1, value: 13B, scope: active}
+    expected: verified
+  - kind: hf_model_params
+    statement: Qwen3-30B-A3B는 활성 파라미터 3B인 MoE
+    params: {repo: Qwen/Qwen3-30B-A3B, value: 3B, scope: active}
+    expected: verified
+  - kind: hf_model_params
+    statement: "Gemma 7B는 7B 파라미터 모델 — 실제 가중치는 8.54B로 이름 표기와 다르다"
+    params: {repo: google/gemma-7b, value: 7B}
+    expected: refuted
+  - kind: hf_model_context
+    statement: SmolLM3-3B는 64K 컨텍스트를 지원한다
+    params: {repo: HuggingFaceTB/SmolLM3-3B, value: 64K}
+    expected: verified
+  - kind: hf_training_tokens
+    statement: SmolLM3-3B는 11T 토큰으로 훈련됐다
+    params: {repo: HuggingFaceTB/SmolLM3-3B, value: 11T}
+    expected: attested

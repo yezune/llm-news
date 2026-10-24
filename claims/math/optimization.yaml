@@ -1,0 +1,22 @@
+title: Adam 편향 보정과 기본 부등식
+source: https://arxiv.org/abs/1412.6980
+claims:
+  - kind: math_identity
+    statement: Adam의 1차 모멘트 지수이동평균 가중치 합은 1 - β^t (편향 보정 항의 근거)
+    params:
+      lhs: (1 - b) * Sum(b^i, (i, 0, t - 1))
+      rhs: 1 - b^t
+      variables: {b: positive, t: [positive, integer], i: integer}
+    expected: verified
+  - kind: math_inequality
+    statement: 모든 양수 x에 대해 log(1 + x) ≤ x
+    params: {lhs: log(1 + x), op: "<=", rhs: x, variables: {x: positive}}
+    expected: verified
+  - kind: math_inequality
+    statement: 모든 실수 x에 대해 e^x ≥ 1 + x
+    params: {lhs: exp(x), op: ">=", rhs: 1 + x, variables: {x: real}}
+    expected: verified
+  - kind: math_value
+    statement: 교차 엔트로피 2 nats는 퍼플렉시티 약 7.389에 해당한다 (PPL = e^CE)
+    params: {expr: exp(2), value: 7.389056, rel_tol: 1e-6}
+    expected: verified

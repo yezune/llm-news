@@ -1,0 +1,14 @@
+title: 공개 데이터셋 주장 (HF 데이터셋 뷰어가 실제 parquet에서 센 값과 대조)
+claims:
+  - kind: hf_dataset
+    statement: "Alpaca 지시 데이터는 52K 예제"
+    params: {repo: tatsu-lab/alpaca, rows: 52K}
+    expected: verified
+  - kind: hf_dataset
+    statement: "GSM8K는 8.5K 문제 (arXiv:2110.14168 초록) — 실제 공개본은 8,792개"
+    params: {repo: openai/gsm8k, config: main, rows: 8.5K}
+    expected: refuted
+  - kind: hf_dataset
+    statement: "FineWeb-Edu는 1.3T 토큰 (토큰은 직접 세지 않으므로 크기 일관성만 확인)"
+    params: {repo: HuggingFaceFW/fineweb-edu, config: default, tokens: 1.3T}
+    expected: inconclusive

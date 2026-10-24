@@ -1,0 +1,24 @@
+title: 소프트맥스와 log-sum-exp의 수치 안정화 항등식
+source: https://arxiv.org/abs/2205.14135
+claims:
+  - kind: math_identity
+    statement: 소프트맥스는 모든 로짓에 같은 상수를 더해도 변하지 않는다 (안정화 트릭의 근거)
+    params:
+      lhs: exp(x + c) / (exp(x + c) + exp(y + c))
+      rhs: exp(x) / (exp(x) + exp(y))
+      variables: {x: real, y: real, c: real}
+    expected: verified
+  - kind: math_identity
+    statement: log-sum-exp는 임의의 상수 c로 이동해 계산해도 같다
+    params:
+      lhs: log(exp(a) + exp(b))
+      rhs: c + log(exp(a - c) + exp(b - c))
+      variables: {a: real, b: real, c: real}
+    expected: verified
+  - kind: math_identity
+    statement: "(의도적 반례) 온도 T로 로짓을 나눠도 소프트맥스 확률은 변하지 않는다"
+    params:
+      lhs: exp(x / T) / (exp(x / T) + exp(y / T))
+      rhs: exp(x) / (exp(x) + exp(y))
+      variables: {x: real, y: real, T: positive}
+    expected: refuted

@@ -1,0 +1,26 @@
+title: 어텐션 계열 알고리즘의 정확성 주장
+claims:
+  - kind: algorithm
+    statement: "FlashAttention의 블록 단위 온라인 소프트맥스는 근사가 아니라 정확한 어텐션이다 (arXiv:2205.14135)"
+    params: {name: online_softmax_attention, seq_len: 64, dim: 16, block: 8, causal: true}
+    expected: verified
+  - kind: algorithm
+    statement: "로짓 규모가 커도(×8) 온라인 소프트맥스는 수치적으로 정확하다"
+    params: {name: online_softmax_attention, seq_len: 48, dim: 8, block: 16, causal: false, scale: 8.0}
+    expected: verified
+  - kind: algorithm
+    statement: "RoPE를 적용한 q·k 내적은 상대 위치에만 의존한다 (arXiv:2104.09864)"
+    params: {name: rope_relative_position, dim: 64, base: 10000.0}
+    expected: verified
+  - kind: algorithm
+    statement: "GQA는 KV 헤드를 복제한 MHA와 같은 출력을 낸다 (arXiv:2305.13245)"
+    params: {name: gqa_equals_repeated_mha, n_heads: 8, n_kv_heads: 2}
+    expected: verified
+  - kind: algorithm
+    statement: "KV 캐시 증분 디코딩은 전체 재계산과 같은 결과를 낸다"
+    params: {name: kv_cache_incremental_decoding}
+    expected: verified
+  - kind: algorithm
+    statement: "MLA의 가중치 흡수(W_UK를 쿼리 쪽으로 흡수)는 잠재 벡터를 복원해 계산한 어텐션 점수와 같다 (arXiv:2405.04434)"
+    params: {name: mla_weight_absorption, d_model: 64, d_latent: 16, n_heads: 4, head_dim: 16}
+    expected: verified

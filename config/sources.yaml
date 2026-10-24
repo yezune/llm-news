@@ -1,0 +1,96 @@
+# 큐레이션 설정. 코드 수정 없이 출처·가중치·키워드를 조정한다.
+
+timezone: Asia/Seoul
+
+# 섹션별로 다이제스트에 싣는 최대 항목 수
+limits:
+  paper: 15
+  model: 10
+  blog: 10
+  # 한 출처(피드)가 섹션을 독점하지 않도록 출처당 상한.
+  # 논문은 HF Papers(업보트 있음)가 늘 앞서므로, 상한으로 arXiv 신규 논문 몫을 남긴다.
+  max_per_source:
+    paper: 12
+    blog: 3
+
+# LLM 관련도 키워드 (소문자, 부분 일치). 가중치 합이 relevance 점수가 된다.
+keywords:
+  large language model: 3
+  language model: 2
+  llm: 3
+  transformer: 1
+  pretrain: 2
+  pre-train: 2
+  fine-tun: 1.5
+  instruction: 1
+  reasoning: 1.5
+  chain-of-thought: 1.5
+  rlhf: 2
+  reinforcement learning from: 1.5
+  reward model: 1.5
+  alignment: 1
+  mixture of experts: 2
+  moe: 1
+  attention: 1
+  kv cache: 2
+  decoding: 1
+  tokeniz: 1.5
+  scaling law: 2
+  inference: 0.5
+  quantiz: 1
+  distill: 1
+  benchmark: 0.5
+  agent: 0.5
+  tokens: 1
+
+# relevance 점수가 이 값 미만이면 LLM 소식이 아닌 것으로 보고 제외 (require_keywords인 출처만)
+min_relevance: 2.0
+
+sources:
+  hf_papers:
+    enabled: true
+    weight: 2.0
+    require_keywords: true
+    # 업보트 상위 몇 개까지 후보로 볼지
+    max_candidates: 60
+
+  arxiv:
+    enabled: true
+    weight: 1.0
+    require_keywords: true
+    query: 'cat:cs.CL AND (abs:"language model" OR abs:LLM OR abs:LLMs)'
+    max_results: 100
+    # 실행일 기준 며칠 이내 제출된 논문만
+    window_days: 2
+
+  hf_models:
+    enabled: true
+    weight: 1.5
+    require_keywords: false
+    pipeline_tags: [text-generation, image-text-to-text, any-to-any, text2text-generation]
+    # 새로 공개된 모델만: 생성 후 며칠 이내
+    max_age_days: 21
+    max_candidates: 80
+    # 양자화/변환 파생본은 원본이 아니므로 제외
+    exclude_name_patterns: [gguf, awq, gptq, mlx, exl2, "-4bit", "-8bit", "-fp8", "-int4", bnb]
+
+  rss:
+    enabled: true
+    weight: 1.5
+    window_days: 3
+    feeds:
+      - name: OpenAI
+        url: https://openai.com/news/rss.xml
+        require_keywords: false
+      - name: Google DeepMind
+        url: https://deepmind.google/blog/rss.xml
+        require_keywords: false
+      - name: Google AI
+        url: https://blog.google/technology/ai/rss/
+        require_keywords: true
+      - name: Hugging Face
+        url: https://huggingface.co/blog/feed.xml
+        require_keywords: true
+      - name: Qwen
+        url: https://qwenlm.github.io/blog/index.xml
+        require_keywords: false

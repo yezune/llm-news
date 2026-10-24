@@ -1,0 +1,68 @@
+name: daily-curation
+
+# 하루 1회: 22:17 UTC = 07:17 KST. (정각은 GitHub 스케줄러 혼잡으로 지연되기 쉬워 피한다)
+# 같은 날짜 다이제스트가 이미 있으면 파이프라인이 스스로 건너뛰므로, 재시도해도 하루 1건만 생긴다.
+on:
+  schedule:
+    - cron: "17 22 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "YYYY-MM-DD (비우면 Asia/Seoul 기준 오늘)"
+        required: false
+      force:
+        description: "같은 날짜 다이제스트가 있어도 다시 생성"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-curation
+  cancel-in-progress: false
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install (uv.lock 고정)
+        run: uv sync --frozen --extra dev
+
+      - name: 검증기 자체 점검 (오프라인 테스트)
+        run: uv run pytest -q
+
+      - name: 큐레이션 + 검증
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          RUN_DATE: ${{ inputs.date }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          args=(-v daily)
+          [ -n "$RUN_DATE" ] && args+=(--date "$RUN_DATE")
+          [ "$FORCE" = "true" ] && args+=(--force)
+          uv run llm-news "${args[@]}"
+
+      - name: 검증 대장 드리프트 확인 (원본이 바뀌면 경고)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: uv run llm-news ledger --check > /dev/null || echo "::warning::claims/ 판정이 기대값과 다릅니다. 원본 아티팩트 변경 여부를 확인하세요."
+
+      - name: 결과 커밋
+        run: |
+          git config user.name "llm-news-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add digests data state README.md
+          if git diff --cached --quiet; then
+            echo "변경 없음"
+            exit 0
+          fi
+          git commit -m "daily: $(TZ=Asia/Seoul date +%F) 큐레이션·검증"
+          git push

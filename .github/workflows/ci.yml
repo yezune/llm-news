@@ -1,0 +1,37 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - run: uv sync --frozen --extra dev
+      - run: uv run ruff check src tests reproductions
+      - run: uv run ruff format --check src tests reproductions
+      # 수학·알고리즘·산술 주장은 여기서 네트워크 없이 전부 재검증된다
+      - run: uv run pytest -q
+
+  # claims/ 의 원본 대조(HF) 주장을 실제 출처로 재검증. 외부 상태에 의존하므로 실패해도 PR을 막지 않는다.
+  live-ledger:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync --frozen --extra dev
+      - run: uv run pytest -m network -q
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}

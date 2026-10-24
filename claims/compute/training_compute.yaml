@@ -1,0 +1,14 @@
+title: 대규모 훈련 연산량·메모리 산술 (재훈련 없이 공식으로 검증)
+claims:
+  - kind: training_flops
+    statement: "Llama 3 405B는 15.6T 토큰으로 3.8×10^25 FLOPs를 사용했다 (arXiv:2407.21783)"
+    params: {params: 405B, tokens: 15.6T, flops: 3.8e25}
+    expected: verified
+  - kind: training_flops
+    statement: "Chinchilla 70B는 1.4T 토큰으로 Gopher와 같은 약 5.76×10^23 FLOPs 예산에서 훈련됐다 (arXiv:2203.15556)"
+    params: {params: 70B, tokens: 1.4T, flops: 5.76e23}
+    expected: verified
+  - kind: kv_cache_bytes
+    statement: "Llama 2 70B(80층, KV 헤드 8, head_dim 128)의 4K 컨텍스트 fp16 KV 캐시는 시퀀스당 약 1.34GB"
+    params: {layers: 80, kv_heads: 8, head_dim: 128, seq_len: 4096, bytes_per_elem: 2, bytes: 1.34e9}
+    expected: verified
