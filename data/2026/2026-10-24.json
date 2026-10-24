@@ -1,6 +1,6 @@
 {
  "date": "2026-10-24",
- "generated_at": "2026-10-24T03:24:56+00:00",
+ "generated_at": "2026-10-24T07:21:04+00:00",
  "fetched": 147,
  "errors": {},
  "items": [
@@ -66,7 +66,7 @@
     "Zhouhan Lin"
    ],
    "signals": {
-    "upvotes": 39.0,
+    "upvotes": 40.0,
     "comments": 2.0
    },
    "artifacts": {
@@ -82,7 +82,7 @@
     "hidden states",
     "end-to-end training"
    ],
-   "score": 15.707,
+   "score": 15.757,
    "claims": [
     {
      "kind": "benchmark_score",
@@ -161,7 +161,7 @@
     "Jing Lyu"
    ],
    "signals": {
-    "upvotes": 224.0,
+    "upvotes": 226.0,
     "comments": 2.0
    },
    "artifacts": {
@@ -178,7 +178,7 @@
     "curriculum SFT",
     "mixed-task RL"
    ],
-   "score": 15.662,
+   "score": 15.679,
    "claims": [],
    "verifications": []
   },
@@ -324,8 +324,8 @@
       {
        "description": "데이터셋 저장소 메타데이터",
        "url": "https://huggingface.co/datasets/code2video-compass/Code2Video-Compass",
-       "revision": "1afd48d0364a83c04b77947f9a70ba1f27e7e3ab",
-       "retrieved_at": "2026-10-24T03:24:49+00:00",
+       "revision": "075e6d7fdf82cef2e91cfc4216503cdcf418b543",
+       "retrieved_at": "2026-10-24T07:20:55+00:00",
        "data": {
         "gated": false,
         "license": "cc-by-nc-4.0",
@@ -335,12 +335,12 @@
       {
        "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
        "url": "https://datasets-server.huggingface.co/size?dataset=code2video-compass/Code2Video-Compass",
-       "revision": "1afd48d0364a83c04b77947f9a70ba1f27e7e3ab",
+       "revision": "075e6d7fdf82cef2e91cfc4216503cdcf418b543",
        "retrieved_at": null,
        "data": {
         "num_rows": 180,
-        "num_bytes_memory": 933229,
-        "num_bytes_parquet_files": 447074,
+        "num_bytes_memory": 933127,
+        "num_bytes_parquet_files": 447020,
         "partial": false
        }
       }
@@ -364,7 +364,7 @@
     "Wenya Wang"
    ],
    "signals": {
-    "upvotes": 16.0,
+    "upvotes": 17.0,
     "comments": 2.0
    },
    "artifacts": {
@@ -380,7 +380,7 @@
     "trajectory-level advantage",
     "credit assignment"
    ],
-   "score": 13.996,
+   "score": 14.11,
    "claims": [],
    "verifications": []
   },
@@ -572,7 +572,7 @@
     "Bryan Dai"
    ],
    "signals": {
-    "upvotes": 55.0,
+    "upvotes": 56.0,
     "comments": 2.0
    },
    "artifacts": {
@@ -589,7 +589,7 @@
     "fine-grained mid-training",
     "multi-scaffold post-training"
    ],
-   "score": 13.88,
+   "score": 13.916,
    "claims": [
     {
      "kind": "reported_params",
@@ -875,8 +875,8 @@
     "MiniMaxAI"
    ],
    "signals": {
-    "likes": 259.0,
-    "trending": 253.0,
+    "likes": 268.0,
+    "trending": 262.0,
     "downloads": 1096.0
    },
    "artifacts": {
@@ -890,7 +890,7 @@
    "tags": [
     "license:other"
    ],
-   "score": 7.801,
+   "score": 7.836,
    "claims": [
     {
      "kind": "hf_model_params",
@@ -936,7 +936,7 @@
        "description": "safetensors 헤더 집계 파라미터 수",
        "url": "https://huggingface.co/api/models/MiniMaxAI/MiniMax-M3.1-Flash",
        "revision": "54e4e69dfc452b1e94a426c24a4fdeeaa8e3ad5e",
-       "retrieved_at": "2026-10-24T03:24:49+00:00",
+       "retrieved_at": "2026-10-24T07:20:55+00:00",
        "data": {
         "total": 220490854016,
         "by_dtype": {
@@ -1008,8 +1008,8 @@
     "HuggingFaceBio"
    ],
    "signals": {
-    "likes": 127.0,
-    "trending": 124.0,
+    "likes": 129.0,
+    "trending": 126.0,
     "downloads": 193.0
    },
    "artifacts": {
@@ -1021,7 +1021,7 @@
    "tags": [
     "license:apache-2.0"
    ],
-   "score": 7.093,
+   "score": 7.108,
    "claims": [
     {
      "kind": "hf_model_context",
@@ -1079,8 +1079,8 @@
     "MemTensor"
    ],
    "signals": {
-    "likes": 91.0,
-    "trending": 84.0,
+    "likes": 92.0,
+    "trending": 85.0,
     "downloads": 2739.0
    },
    "artifacts": {
@@ -1094,7 +1094,7 @@
    "tags": [
     "license:apache-2.0"
    ],
-   "score": 6.74,
+   "score": 6.751,
    "claims": [],
    "verifications": []
   },
@@ -1317,7 +1317,7 @@
     "verdict": "verified",
     "tier": "internal",
     "method": "reproduction:rope_relative_position",
-    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 8.80e-13), 주장=성립",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 1.93e-12), 주장=성립",
     "evidence": [
      {
       "description": "재현 'rope_relative_position': RoPE 적용 후 q·k 내적은 절대 위치가 아니라 상대 위치(m-n)에만 의존한다.",
@@ -1327,10 +1327,10 @@
       "data": {
        "seed": 0,
        "trials": 20,
-       "max_error": 8.801848139228241e-13,
-       "m": 3705,
-       "n": 1869,
-       "shift": 3145
+       "max_error": 1.9326762412674725e-12,
+       "m": 3413,
+       "n": 15,
+       "shift": 2337
       }
      }
     ]
@@ -1554,7 +1554,7 @@
     "verdict": "verified",
     "tier": "internal",
     "method": "reproduction:lora_merge_equivalence",
-    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 3.41e-13), 주장=성립",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 1.14e-13), 주장=성립",
     "evidence": [
      {
       "description": "재현 'lora_merge_equivalence': LoRA 가중치 병합 W' = W + (α/r)·BA 는 어댑터 경로 출력과 같고, 추가 파라미터는 r·(d_in+d_out).",
@@ -1564,7 +1564,7 @@
       "data": {
        "seed": 0,
        "trials": 20,
-       "max_error": 3.410605131648481e-13,
+       "max_error": 1.1368683772161603e-13,
        "extra_params": 1792
       }
      }
@@ -1713,7 +1713,7 @@
       "description": "데이터셋 저장소 메타데이터",
       "url": "https://huggingface.co/datasets/tatsu-lab/alpaca",
       "revision": "dce01c9b08f87459cf36a430d809084718273017",
-      "retrieved_at": "2026-10-24T03:24:53+00:00",
+      "retrieved_at": "2026-10-24T07:21:01+00:00",
       "data": {
        "gated": false,
        "license": "cc-by-nc-4.0",
@@ -1763,7 +1763,7 @@
       "description": "데이터셋 저장소 메타데이터",
       "url": "https://huggingface.co/datasets/openai/gsm8k",
       "revision": "740312add88f781978c0658806c59bc2815b9866",
-      "retrieved_at": "2026-10-24T03:24:53+00:00",
+      "retrieved_at": "2026-10-24T07:21:01+00:00",
       "data": {
        "gated": false,
        "license": [
@@ -1815,7 +1815,7 @@
       "description": "데이터셋 저장소 메타데이터",
       "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu",
       "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
-      "retrieved_at": "2026-10-24T03:24:53+00:00",
+      "retrieved_at": "2026-10-24T07:21:02+00:00",
       "data": {
        "gated": false,
        "license": "odc-by",
@@ -2226,7 +2226,7 @@
       "description": "safetensors 헤더 집계 파라미터 수",
       "url": "https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B",
       "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
-      "retrieved_at": "2026-10-24T03:24:56+00:00",
+      "retrieved_at": "2026-10-24T07:21:03+00:00",
       "data": {
        "total": 494032768,
        "by_dtype": {
@@ -2276,7 +2276,7 @@
       "description": "safetensors 헤더 집계 파라미터 수",
       "url": "https://huggingface.co/api/models/mistralai/Mixtral-8x7B-v0.1",
       "revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
-      "retrieved_at": "2026-10-24T03:24:56+00:00",
+      "retrieved_at": "2026-10-24T07:21:03+00:00",
       "data": {
        "total": 46702792704,
        "by_dtype": {
@@ -2326,7 +2326,7 @@
       "description": "safetensors 헤더 집계 파라미터 수",
       "url": "https://huggingface.co/api/models/mistralai/Mixtral-8x7B-v0.1",
       "revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
-      "retrieved_at": "2026-10-24T03:24:56+00:00",
+      "retrieved_at": "2026-10-24T07:21:03+00:00",
       "data": {
        "total": 46702792704,
        "by_dtype": {
@@ -2376,7 +2376,7 @@
       "description": "safetensors 헤더 집계 파라미터 수",
       "url": "https://huggingface.co/api/models/Qwen/Qwen3-30B-A3B",
       "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
-      "retrieved_at": "2026-10-24T03:24:56+00:00",
+      "retrieved_at": "2026-10-24T07:21:04+00:00",
       "data": {
        "total": 30532122624,
        "by_dtype": {
@@ -2425,7 +2425,7 @@
       "description": "safetensors 헤더 집계 파라미터 수",
       "url": "https://huggingface.co/api/models/google/gemma-7b",
       "revision": "ff6768d9368919a1f025a54f9f5aa0ee591730bb",
-      "retrieved_at": "2026-10-24T03:24:56+00:00",
+      "retrieved_at": "2026-10-24T07:21:04+00:00",
       "data": {
        "total": 8537680896,
        "by_dtype": {
