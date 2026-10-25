@@ -36,6 +36,7 @@
 "hf-model:MemTensor/MemT-1.0-Flash": "2026-10-24",
 "hf-model:MemTensor/MemT-1.0-Nano": "2026-10-24",
 "hf-model:MiniMaxAI/MiniMax-M3.1-Flash": "2026-10-24",
+"hf-model:Nanbeige/Nanbeige4.3-33B": "2026-10-26",
 "hf-model:RecursiveSI/flint": "2026-10-23",
 "hf-model:XHToken/Spark-X2.6-4B": "2026-10-23",
 "hf-model:deepseek-ai/DeepSeek-V4.1-Flash-1017": "2026-10-23",
