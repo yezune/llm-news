@@ -1,0 +1,3082 @@
+{
+ "date": "2026-11-19",
+ "generated_at": "2026-11-18T22:21:06+00:00",
+ "fetched": 130,
+ "errors": {},
+ "items": [
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.22115",
+   "title": "TeleChat to Xing4: Advancing Frontier Agentic Models on Domestic Chips and Frameworks",
+   "url": "https://huggingface.co/papers/2611.22115",
+   "published": "2026-11-17T00:00:00.000Z",
+   "summary": "We present Xing 4, a series of large language models that extends the TeleChat lineage through coordinated advances in model architecture and training infrastructure on Ascend. This report describes the design principles and systems engineering behind the series, spanning architecture selection, large-scale pretraining, and reasoning and agentic post-training. We study how sparse activation, attention design, model depth and width, and speculative decoding balance model capacity with computation, memory access, and execution overhead. Our pretraining infrastructure builds on MindSpore HyperParallel, combining topology-aware hybrid sharding, efficient distributed optimizer execution, and coordinated management of long-sequence workloads and activation memory. CPU affinity and core isolation further reduce host scheduling interference. Together, these mechanisms support the pretraining of a 285B-parameter model on 8,192 Ascend 910C cards, providing a concrete setting for the architectural and systems studies. For post-training, we introduce TeleGym, a unified agent execution platform that connects execution, evaluation, and trajectory construction to policy optimization. Disaggregated asynchronous execution, bounded oversampling, and partial rollout accommodate heterogeneous task durations while preserving trajectory continuity across policy updates. Together, these advances establish an Ascend-oriented training foundation for the continued development of Xing 4 across model scales and increasingly demanding reasoning and agent workloads.",
+   "authors": [
+    "Xingchen AGI Lab",
+    "Baotian Hu",
+    "Bingkai Yang",
+    "Boyang Wang",
+    "Changzai Pan",
+    "Chao Lyu",
+    "Chao Wang",
+    "Chen Li",
+    "Chenshuo Pan",
+    "Chenyu Lin",
+    "Chenyuan Zhang",
+    "Chongming Liu",
+    "Dawei Fan",
+    "Di Wu",
+    "Dong Guo",
+    "Dong Li",
+    "Dongfang Li",
+    "Enlin Liu",
+    "Fanye Xiao",
+    "Fengkai Li",
+    "Fubei Yao",
+    "Gang Lin",
+    "Han Gao",
+    "Hanming Wu",
+    "Haowei He",
+    "Huapeng Liu",
+    "Hua Wang",
+    "Huinan Xu",
+    "Jiahong Xiong",
+    "Jiaxin Peng",
+    "Jianxiang Ma",
+    "Jianxing Zhuge",
+    "Jie Zhang",
+    "Ji Xiong",
+    "Jinglin Chen",
+    "Jingqi Li",
+    "Jingxuan Li",
+    "Jiwang Ye",
+    "Junchen Li",
+    "Junbiao Li",
+    "Junyang Wu",
+    "Kaidong Yu",
+    "Kaipeng Jia",
+    "Kehai Chen",
+    "Kuai Li",
+    "Laobin Liu",
+    "Lei Li",
+    "Libo Qin",
+    "Lingling Shi",
+    "Luwen Pu",
+    "Menghao Xu",
+    "Mengjiao Bao",
+    "Mengqi Chen",
+    "Min Zhang",
+    "Mingrui Wang",
+    "Naying Wang",
+    "Peicong Han",
+    "Peiming Guo",
+    "Pengfei Li",
+    "Qiang Feng",
+    "Qi Wang",
+    "Qingjun Zhu",
+    "Qingli Li",
+    "Qitai Ding",
+    "Qiyi Xie",
+    "Quanchao Zhao",
+    "Rongbao Han",
+    "Rui Xue",
+    "Ruiyu Fang",
+    "Ruiting Song",
+    "Shijie Li",
+    "Shiquan Wang",
+    "Shuangyong Song",
+    "Sishi Xiong",
+    "Teng Su",
+    "Wankang Bao",
+    "Weijie Zhang",
+    "Wei Mao",
+    "Weiwei Fu",
+    "Weiyang Huang",
+    "Wenmin Deng",
+    "Wenqing Hu",
+    "Wujie Zhong",
+    "Xi Yu",
+    "Xiaohui Hu",
+    "Xiaomin Fang",
+    "Xiaomeng Huang",
+    "Xiaoqiong Shi",
+    "Xiaotong Shang",
+    "Xiaoyu Li",
+    "Xinglei Xu",
+    "Xin Jiang",
+    "Xin Wang",
+    "Xin Zhang",
+    "Xinzhang Liu",
+    "Xue Liu",
+    "Xuefeng Bai",
+    "Xuewei He",
+    "Yahan Li",
+    "Yanhan Zhang",
+    "Yanlei Xue",
+    "Yanzhang Wu",
+    "Yang Yu",
+    "Yi Liu",
+    "Yin Zhang",
+    "Yingyan Li",
+    "Yitong Yao",
+    "Yixuan Li",
+    "Yongqiang Xia",
+    "Yongxiang Li",
+    "Yinzhou Zhu",
+    "Yu Zhao",
+    "Yuhao Jiang",
+    "Yunpeng Zhang",
+    "Yuting Lin",
+    "Yuxuan Wu",
+    "Yuyao Huang",
+    "Yuyi Wang",
+    "Zebo Peng",
+    "Zhenwu Pei",
+    "Zhenxiong Li",
+    "Zhao Wang",
+    "Zhaoxi Zhang",
+    "Zhihao Yang",
+    "Zhiqiang Dong",
+    "Zhiwei Yan",
+    "Zhilong Lu",
+    "Zhonghao Guo",
+    "Zhongheng Wu",
+    "Zhongjiang He",
+    "Zhongqiu Li",
+    "Zhu Yuan",
+    "Zhuoru Jiang",
+    "Zhuoyi Wei",
+    "Zijia Guo",
+    "Zilu Huang",
+    "Zhipeng Guo",
+    "Zirui Li",
+    "Zihan Wang"
+   ],
+   "signals": {
+    "upvotes": 149.0,
+    "comments": 2.0
+   },
+   "artifacts": {
+    "models": [
+     "XingChen-AGI/Xing4.0-29B-A4B",
+     "XingChen-AGI/Xing4.0-29B-Intent",
+     "XingChen-AGI/Xing4.0-29B-A4B-GGUF",
+     "XingChen-AGI/Xing4.0-29B-A4B-FP8",
+     "XingChen-AGI/Xing4.0-29B-Intent-GGUF",
+     "XingChen-AGI/Xing4.0-29B-Intent-FP8",
+     "XingChen-AGI/Xing4.0-29B-A4B-w8a8"
+    ],
+    "datasets": [
+     "XingChen-AGI/Xing4.0-29B-Intent-oss"
+    ]
+   },
+   "tags": [],
+   "score": 18.351,
+   "claims": [
+    {
+     "kind": "reported_params",
+     "statement": "285B 파라미터 모델",
+     "params": {
+      "value": "285B"
+     },
+     "quote": "mechanisms support the pretraining of a 285B-parameter model on 8,192 Asce",
+     "id": "90702b2228db"
+    },
+    {
+     "kind": "hf_dataset",
+     "statement": "공개 데이터셋 XingChen-AGI/Xing4.0-29B-Intent-oss가 실제로 존재하고 접근 가능",
+     "params": {
+      "repo": "XingChen-AGI/Xing4.0-29B-Intent-oss"
+     },
+     "quote": null,
+     "id": "946d86ae6c8c"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "reported_params",
+      "statement": "285B 파라미터 모델",
+      "params": {
+       "value": "285B"
+      },
+      "quote": "mechanisms support the pretraining of a 285B-parameter model on 8,192 Asce",
+      "id": "90702b2228db"
+     },
+     "verdict": "unverifiable",
+     "tier": "reported",
+     "method": "none",
+     "summary": "'reported_params' 종류의 검증기가 없음 — 자기보고 수치로 취급",
+     "evidence": []
+    },
+    {
+     "claim": {
+      "kind": "hf_dataset",
+      "statement": "공개 데이터셋 XingChen-AGI/Xing4.0-29B-Intent-oss가 실제로 존재하고 접근 가능",
+      "params": {
+       "repo": "XingChen-AGI/Xing4.0-29B-Intent-oss"
+      },
+      "quote": null,
+      "id": "946d86ae6c8c"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_dataset",
+     "summary": "데이터셋이 실제로 존재하고 접근 가능",
+     "evidence": [
+      {
+       "description": "데이터셋 저장소 메타데이터",
+       "url": "https://huggingface.co/datasets/XingChen-AGI/Xing4.0-29B-Intent-oss",
+       "revision": "883c7dc7f52d380b6d4d80067a267ee6921cad39",
+       "retrieved_at": "2026-11-18T22:20:54+00:00",
+       "data": {
+        "gated": false,
+        "license": "apache-2.0",
+        "downloads": 1260
+       }
+      },
+      {
+       "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+       "url": "https://datasets-server.huggingface.co/size?dataset=XingChen-AGI/Xing4.0-29B-Intent-oss",
+       "revision": "883c7dc7f52d380b6d4d80067a267ee6921cad39",
+       "retrieved_at": null,
+       "data": {
+        "num_rows": 0,
+        "num_bytes_memory": 0,
+        "num_bytes_parquet_files": 0,
+        "partial": false
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.17621",
+   "title": "AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs",
+   "url": "https://huggingface.co/papers/2611.17621",
+   "published": "2026-11-13T00:00:00.000Z",
+   "summary": "Kernel optimization is essential for efficient large language model (LLM) training and inference on Ascend NPUs. Existing Ascend kernel benchmarks primarily focus on kernel generation, with less emphasis on the ability of agents to optimize existing implementations under input configurations drawn from real workloads. To address this requirement, we introduce AscendGYM, a benchmark whose initial suite comprises 48 kernels across three difficulty levels. Each kernel is paired with test cases whose data types and tensor shapes are collected from real-world training and inference tasks. Consequently, performance improvements on AscendGYM map directly to the corresponding workloads. In terms of usability, two evaluation modes are supported in AscendGYM: model evaluation and model-harness evaluation. The kernel optimization capabilities of both trained models and custom agents are allowed to be measured. It provides a complete execution environment that closely reproduces how Ascend kernels are invoked in practical pipelines. For model evaluation, it additionally includes a built-in harness equipped with search orchestration and experience accumulation. Finally, we propose a new metric, the Speedup-Token Score (STS), which quantifies performance gains relative to token cost. By jointly considering speedup and cost, STS enables the assessment of practical kernel optimization capability of a model or harness under an acceptable budget. AscendGYM is available at https://github.com/SLAI-AITP/AscendGYM.",
+   "authors": [
+    "AI Training Platform Team",
+    "Bingwei Zhang",
+    "Jing Li",
+    "Amir Abdullin",
+    "Sihang Chen",
+    "Xin Chen",
+    "Liangjun Feng",
+    "Yingmeng Gao",
+    "Tao Guo",
+    "Junjie Huang",
+    "Dongfang Li",
+    "Zhanglian Lin",
+    "Jiajun Liu",
+    "Zekun Liu",
+    "Zhengxuan Lu",
+    "Xiaodong Luo",
+    "Jian Meng",
+    "Ivan Nosov",
+    "Linyuan Qiu",
+    "Weijian Sun",
+    "Wanrui Yan",
+    "Binfan Zheng",
+    "Zhicheng Zhou",
+    "Baotian Hu",
+    "Min Zhang",
+    "Haizhou Li",
+    "Zhiquan Luo"
+   ],
+   "signals": {
+    "upvotes": 91.0,
+    "comments": 2.0
+   },
+   "artifacts": {
+    "models": [],
+    "datasets": [
+     "SLAI-AITP/AscendGYM"
+    ]
+   },
+   "tags": [
+    "large language model (LLM)",
+    "Ascend NPUs",
+    "kernel optimization",
+    "kernel benchmarks",
+    "kernel generation",
+    "agents",
+    "input configurations",
+    "tensor shapes"
+   ],
+   "score": 17.373,
+   "claims": [
+    {
+     "kind": "hf_dataset",
+     "statement": "공개 데이터셋 SLAI-AITP/AscendGYM가 실제로 존재하고 접근 가능",
+     "params": {
+      "repo": "SLAI-AITP/AscendGYM"
+     },
+     "quote": null,
+     "id": "8e1d5b129287"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_dataset",
+      "statement": "공개 데이터셋 SLAI-AITP/AscendGYM가 실제로 존재하고 접근 가능",
+      "params": {
+       "repo": "SLAI-AITP/AscendGYM"
+      },
+      "quote": null,
+      "id": "8e1d5b129287"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_dataset",
+     "summary": "데이터셋이 실제로 존재하고 접근 가능",
+     "evidence": [
+      {
+       "description": "데이터셋 저장소 메타데이터",
+       "url": "https://huggingface.co/datasets/SLAI-AITP/AscendGYM",
+       "revision": "f3f9c5c20c040cc1a1ba277872304d8ffa7ac0c6",
+       "retrieved_at": "2026-11-18T22:20:54+00:00",
+       "data": {
+        "gated": false,
+        "license": "other",
+        "downloads": 74
+       }
+      },
+      {
+       "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+       "url": "https://datasets-server.huggingface.co/size?dataset=SLAI-AITP/AscendGYM",
+       "revision": "f3f9c5c20c040cc1a1ba277872304d8ffa7ac0c6",
+       "retrieved_at": null,
+       "data": {
+        "num_rows": 20,
+        "num_bytes_memory": 11871,
+        "num_bytes_parquet_files": 21861,
+        "partial": false
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.22055",
+   "title": "Weight-Space Programming Doesn't Need Transformers",
+   "url": "https://huggingface.co/papers/2611.22055",
+   "published": "2026-11-17T00:00:00.000Z",
+   "summary": "Standard neural architectures such as the Transformer were chosen because they train well with gradient descent and run fast on GPUs. In weight-space programming, a large language model (LLM) writes target weights by hand without gradient-based training, so those reasons no longer apply. Should we keep the Transformer? Given minimal guidance, ten labeled examples, and a sandbox, mainly on multiple-choice questions, we task three frontier LLMs with either generating the weights of a fixed architecture or designing the architecture themselves. When free to design, all three compile plain-text facts into a sparse table queried by a fixed procedure, reaching up to 54.4% test accuracy. An LLM-designed model achieves higher test accuracy than the most accurate released Transformer that the same LLM wrote while using about 1,800x fewer parameters. Without gradients, they choose a table, in which the LLM can state what each weight means and can find and rewrite a wrong one. Each wrong answer points to one row, and removing a row changes about one other answer. From this, we propose an associative-memory-based model up to 17x faster on GPUs than a same-sized Transformer. We also test pretrained weights, other benchmarks, and tasks where models generate answers. Pretrained LLMs remain more accurate; the claim concerns which structure to build when writing weights.",
+   "authors": [
+    "Hyunjong Ok",
+    "Jaeho Lee"
+   ],
+   "signals": {
+    "upvotes": 47.0,
+    "comments": 2.0
+   },
+   "artifacts": {
+    "models": [],
+    "datasets": []
+   },
+   "tags": [
+    "Transformer",
+    "neural architectures",
+    "gradient descent",
+    "large language model",
+    "weight-space programming",
+    "target weights",
+    "gradient-based training",
+    "sparse table",
+    "cs.LG",
+    "cs.AI",
+    "cs.CL"
+   ],
+   "score": 16.072,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.19800",
+   "title": "Multi-Branch Transformer",
+   "url": "https://huggingface.co/papers/2611.19800",
+   "published": "2026-11-15T00:00:00.000Z",
+   "summary": "Transformer language models are commonly scaled by making their blocks wider or stacking them deeper. In this work, we explore a complementary path: branching, the parallel composition of full Transformer blocks. We introduce the Multi-Branch Transformer (MBT), which processes the input through shared initial layers, executes independently parameterized branches of sequential blocks in parallel, and fuses their outputs before shared final layers. At comparable training compute, we study three MBT variants: Wide-Shallow preserves block width, Narrow-Deep preserves sequential depth, and Balanced interpolates between them. In controlled pretraining experiments at four mixture-of-experts scales (0.8B to 2.1B total parameters), 2-branch Wide-Shallow MBTs consistently outperform sequential Transformers under matched parameter and training-compute budgets. Balanced MBTs improve further and retain comparable quality as the number of branches increases. To improve inference efficiency at long contexts, we introduce Joint-KV, which constructs a shared KV cache from branch representations at each depth. Our final recipe combines Balanced MBTs with Joint-KV, supported by an inference engine that exploits branch grouping and shared-cache reuse. Fitted scaling curves indicate that standard Transformers require up to 1.26x as much training body compute to match our final models' validation loss. These models reduce full-model KV-cache storage by up to 34% and deliver up to 51.4% higher decoding throughput on a single H200 GPU. Ablation studies show that branching yields gains beyond changes in width and depth, enables an effective KV-sharing strategy (Joint-KV), remains robust across fusion functions, and performs best in the middle layers. These findings show that branching offers a practical path for scaling language models toward both better modeling quality and faster inference.",
+   "authors": [
+    "Gaotang Li",
+    "Lingjie Chen",
+    "Chunyuan Deng",
+    "Zhiwei Xu",
+    "Hongzheng Chen",
+    "Christopher De Sa",
+    "Jingrui He",
+    "Yingheng Wang",
+    "Hanghang Tong"
+   ],
+   "signals": {
+    "upvotes": 43.0,
+    "comments": 2.0
+   },
+   "artifacts": {
+    "models": [],
+    "datasets": [
+     "gaotang/MBT-Validation"
+    ]
+   },
+   "tags": [
+    "Multi-Branch Transformer (MBT)",
+    "branching",
+    "parallel composition of Transformer blocks",
+    "shared initial layers",
+    "independently parameterized branches",
+    "sequential blocks",
+    "output fusion",
+    "shared final layers"
+   ],
+   "score": 15.898,
+   "claims": [
+    {
+     "kind": "reported_params",
+     "statement": "2.1B 파라미터 모델",
+     "params": {
+      "value": "2.1B"
+     },
+     "quote": "four mixture-of-experts scales (0.8B to 2.1B total parameters), 2-branch Wide-Sha",
+     "id": "6850847129da"
+    },
+    {
+     "kind": "hf_dataset",
+     "statement": "공개 데이터셋 gaotang/MBT-Validation가 실제로 존재하고 접근 가능",
+     "params": {
+      "repo": "gaotang/MBT-Validation"
+     },
+     "quote": null,
+     "id": "e22db0b8add5"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "reported_params",
+      "statement": "2.1B 파라미터 모델",
+      "params": {
+       "value": "2.1B"
+      },
+      "quote": "four mixture-of-experts scales (0.8B to 2.1B total parameters), 2-branch Wide-Sha",
+      "id": "6850847129da"
+     },
+     "verdict": "unverifiable",
+     "tier": "reported",
+     "method": "none",
+     "summary": "'reported_params' 종류의 검증기가 없음 — 자기보고 수치로 취급",
+     "evidence": []
+    },
+    {
+     "claim": {
+      "kind": "hf_dataset",
+      "statement": "공개 데이터셋 gaotang/MBT-Validation가 실제로 존재하고 접근 가능",
+      "params": {
+       "repo": "gaotang/MBT-Validation"
+      },
+      "quote": null,
+      "id": "e22db0b8add5"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_dataset",
+     "summary": "데이터셋이 실제로 존재하고 접근 가능",
+     "evidence": [
+      {
+       "description": "데이터셋 저장소 메타데이터",
+       "url": "https://huggingface.co/datasets/gaotang/MBT-Validation",
+       "revision": "bd708088668e16c74a422d2acbae7a911aa158d2",
+       "retrieved_at": "2026-11-18T22:20:54+00:00",
+       "data": {
+        "gated": false,
+        "license": "odc-by",
+        "downloads": 29
+       }
+      },
+      {
+       "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+       "url": "https://datasets-server.huggingface.co/size?dataset=gaotang/MBT-Validation",
+       "revision": "bd708088668e16c74a422d2acbae7a911aa158d2",
+       "retrieved_at": null,
+       "data": {
+        "num_rows": 12160,
+        "num_bytes_memory": 108935693,
+        "num_bytes_parquet_files": 87161880,
+        "partial": false
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.20992",
+   "title": "MedJev: A System One Vision-Language Decision Model for Fast and Effective Medical Image Understanding",
+   "url": "https://huggingface.co/papers/2611.20992",
+   "published": "2026-11-16T00:00:00.000Z",
+   "summary": "Medical image understanding with vision-language models (VLMs) typically relies on autoregressively generating reasoning and answer tokens. These unnecessary tokens make the inference cost scale with the response length and force the answer to be parsed from free-form text, incurring avoidable latency and decision errors. To this end, we introduce MedJev, a system one vision-language decision model that maps medical images, questions, and candidate answers directly to decisions in a single multimodal forward pass, without any autoregressive generation process. For fast inference, MedJev removes the upper language layers and the generative output pathway, while keeping the full vision pathway and all visual tokens. On this shortened backbone, a decision head scores each candidate by pretrained query--key matching and refines the scores with a lightweight multilayer perceptron (MLP) residual, coupling the pretrained matching structure with task-specific nonlinear discrimination. Built on Qwen3.5-4B, MedJev-4B improves both accuracy and speed over the original model on each of four medical image classification and visual question answering benchmarks, with an absolute accuracy gain of 7.93\\% and a 6.04times end-to-end speedup. Further comparison with 20 cutting-edge models shows that MedJev-4B achieves state-of-the-art performance and inference speed among 4B--9B general and medical VLMs, indicating that direct multimodal decision making is an effective route to fast and effective medical image understanding.",
+   "authors": [
+    "Fan Zhang",
+    "Hao Wu",
+    "Jinyang Wu",
+    "Hongyu Qu",
+    "Zheng Lian",
+    "Dongfu Yin",
+    "Qingsong Wen",
+    "Pheng-Ann Heng"
+   ],
+   "signals": {
+    "upvotes": 10.0,
+    "comments": 1.0
+   },
+   "artifacts": {
+    "models": [],
+    "datasets": []
+   },
+   "tags": [],
+   "score": 13.004,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.19244",
+   "title": "Agentic On-Policy Distillation Implicitly Reshapes LLMs' ReAct Patterns",
+   "url": "https://huggingface.co/papers/2611.19244",
+   "published": "2026-11-14T00:00:00.000Z",
+   "summary": "On-policy distillation (OPD) transfers specialized capabilities to language-model agents, but its cross-domain effects on interaction remain unclear. We investigate how OPD reshapes ReAct interaction patterns across mathematics, ALFWorld, and τ^2-bench, focusing on reasoning, actions, and observation acquisition. General-reasoning supervision reduces mathematical tool attempts from 70.4% to 14.4% while increasing accuracy from 16.7% to 38.0%; code-interpreter supervision improves household actions and retail queries. In contrast, ALFWorld supervision reduces τ^2-bench accuracy from 41.5% to 6.6%, accompanied by frequent tool calls that violate user-information dependencies. To address negative transfer using only source-domain training trajectories, we explore selective OPD guided by teacher preference changes before and after domain-specific RL. Retaining the top 95% of positions raises τ^2 accuracy from 11.5% to 29.9% with a source-learning trade-off.",
+   "authors": [
+    "Deyang Kong",
+    "Zhaoyi Li",
+    "Sijian Ren",
+    "Yuan Wei",
+    "Ying Wei",
+    "Defu Lian",
+    "Shikun Zhang",
+    "Wei Ye"
+   ],
+   "signals": {
+    "upvotes": 7.0,
+    "comments": 2.0
+   },
+   "artifacts": {
+    "models": [],
+    "datasets": []
+   },
+   "tags": [
+    "on-policy distillation (OPD)",
+    "language-model agents",
+    "ReAct interaction patterns",
+    "cross-domain effects",
+    "general-reasoning supervision",
+    "code-interpreter supervision",
+    "mathematical tool attempts",
+    "observation acquisition"
+   ],
+   "score": 12.488,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.17048",
+   "title": "Beyond Answering: Learning to Speak First and Act in Streaming Video",
+   "url": "https://huggingface.co/papers/2611.17048",
+   "published": "2026-11-15T00:00:00.000Z",
+   "summary": "Most AI assistants respond only when prompted, remaining silent even when events in the video stream offer meaningful opportunities for conversation. To move beyond purely user-driven interaction, we present AURA 2.0, a streaming video large language model that introduces three core upgrades to AURA. The key advance is Model-Initiated Conversation (MIC), which enables the model to identify topics worth discussing in the evolving visual stream and initiate conversations at appropriate moments without a user query. Stream-Aware Tool Calling (SATC) lets the model act on what it sees by invoking external tools using the current visual and conversational context and incorporating returned information into the ongoing interaction. Interactive Visual Grounding (IVG) supports visual grounding in both user inputs and model outputs. The model can identify objects marked by users on video frames and produce frame-aligned bounding boxes to link its responses to specific objects and regions. To develop these capabilities, we construct a dedicated streaming interaction dataset and adopt a three-stage training scheme to integrate the new behaviors with AURA's existing streaming interaction abilities. We further incorporate Long-Horizon Interaction Memory (LHIM) to maintain contextual continuity over extended video streams. Evaluations on public streaming benchmarks show that AURA 2.0 achieves leading performance among open-source streaming models, while targeted evaluations further validate its new interaction capabilities.",
+   "authors": [
+    "Shuhan Li",
+    "Huankang Guan",
+    "Xintong Guo",
+    "Yang Bo",
+    "Yuyang He",
+    "Dunyuan Xu",
+    "Jingyan Chen",
+    "Fang Liu",
+    "Tsz Kin Wan",
+    "Jinpeng Chen",
+    "Zhenqi He",
+    "Yuxuan Hu",
+    "Wenbo Li",
+    "Han Gao",
+    "Qijun Li",
+    "Long Chen",
+    "Hongsheng Li",
+    "Rui Liu"
+   ],
+   "signals": {
+    "upvotes": 8.0,
+    "comments": 1.0
+   },
+   "artifacts": {
+    "models": [
+     "aurateam/AURA_2",
+     "aurateam/AURA_2_BF8"
+    ],
+    "datasets": []
+   },
+   "tags": [
+    "streaming video large language model",
+    "Model-Initiated Conversation",
+    "Stream-Aware Tool Calling",
+    "Interactive Visual Grounding",
+    "visual grounding",
+    "frame-aligned bounding boxes",
+    "streaming interaction dataset",
+    "three-stage training scheme"
+   ],
+   "score": 12.102,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.23226",
+   "title": "FastFrames: Video Generation at Interactive Latency",
+   "url": "https://huggingface.co/papers/2611.23226",
+   "published": "2026-11-17T00:00:00.000Z",
+   "summary": "Autoregressive video diffusion models generate frames based on new observations and inputs, making them a promising medium for interactive visual experiences. However, existing models are orders of magnitude too slow for fluid interaction. This paper introduces FastFrames, a family of fast autoregressive video diffusion models that achieves interactive latency without compromising quality. We profile the inference pipeline of state-of-the-art models and find that operations often treated as fixed implementation details, such as VAE decoding and KV cache updates, in fact account for over half of end-to-end inference latency. We challenge the assumption that these components are indispensable and replace them with lightweight alternatives. Our 1.3B variant runs at 36 ms per frame, or 28 responses per second (RPS), on a single B200 GPU while matching the generation quality of a state-of-the-art model that is nearly 8x slower. Our 14B variant runs at 45 ms per frame, or 22 RPS, on an 8x B200 GPU node and yields significantly better visual quality and realism. We show that FastFrames enables real-time interaction in applications such as camera-conditioned and physics-conditioned video generation.",
+   "authors": [
+    "Gene Chou",
+    "Guandao Yang",
+    "Fujun Luan",
+    "Lars Mescheder",
+    "Wei Dong",
+    "Stephan Richter",
+    "Vladlen Koltun"
+   ],
+   "signals": {
+    "upvotes": 21.0,
+    "comments": 3.0
+   },
+   "artifacts": {
+    "models": [
+     "apple/FastFrames-L",
+     "apple/FastFrames-S",
+     "pratikgx/FastFrames-S-MLX"
+    ],
+    "datasets": []
+   },
+   "tags": [],
+   "score": 12.098,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.21925",
+   "title": "DNeo: Your Parallel Draft Model Needs Better Target Feature Encoding",
+   "url": "https://huggingface.co/papers/2611.21925",
+   "published": "2026-11-16T00:00:00.000Z",
+   "summary": "Speculative-diffusion decoding uses a small parallel drafter model to generate b draft tokens in one forward pass, which then undergo parallel verification via a larger target model. Faster inference can be achieved when multiple draft tokens pass verification simultaneously. Recent parallel draft architectures (DFlash, DSpark) improve draft quality by conditioning on rich features computed by the target, through a mechanism known as feature encoding. However, standard feature encoding mechanisms have three limitations: (1) they are lossy, applying encoding projections that are destructive to the underlying target feature-space via a discovered effect known as residual mixing, (2) they are memory-less, with no record of previously processed proposals, and (3) they utilize features sampled uniformly from across the target layers, omitting important hidden states. To address these issues, we propose Mixture-of-Features Attention (MoFA), a lightweight feature-encoding approach equipped with a working memory that encodes previously rejected proposals. Leveraging MoFA, rejection memory, and a set of further enhancements, including 2-tap causal convolutions, prefix-only cross-attention, and non-uniform target layer selection, the final architecture, DNeo, achieves 1.3x faster generation speed than SoTA (DFlash-2) without impacting drafter footprint or generation quality. DNeo marks a new state of the art in high quality, fast LLM inference.",
+   "authors": [
+    "Jameson Sandler",
+    "Shane Bergsma",
+    "Mostafa Elhoushi",
+    "Bin Claire Zhang",
+    "Gavia Gray",
+    "Joel Hestness",
+    "Nolan Dey",
+    "Ferdinando Fioretto"
+   ],
+   "signals": {
+    "upvotes": 3.0,
+    "comments": 1.0
+   },
+   "artifacts": {
+    "models": [
+     "J-sandler/Qwen3-4B-DNeo"
+    ],
+    "datasets": []
+   },
+   "tags": [
+    "speculative-diffusion decoding",
+    "parallel drafter model",
+    "draft tokens",
+    "target model",
+    "parallel verification",
+    "parallel draft architectures",
+    "DFlash",
+    "DSpark"
+   ],
+   "score": 10.981,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.15671",
+   "title": "The Noise Floor of a Quantization Comparison: Engine, restart, batch and kernel drift, measured against 8-bit and 4-bit effects in two decision models",
+   "url": "https://huggingface.co/papers/2611.15671",
+   "published": "2026-11-11T00:00:00.000Z",
+   "summary": "A quantized model is usually judged by comparing it with its BF16 original, but that comparison changes more than the weights. It often changes the serving engine, it always runs on a different server instance, it may change how requests are batched, and on some stacks the library selects a different kernel depending only on which packages import. We measure each of these sources on the same 2,400 public decisions for two of Cloudflare's decision models, Clef-flash (9B) and Clef (27B), on an NVIDIA GB10, and state every quantization effect as the excess over them. Sources that are not quantization move between 0 and 0.92% of decisions. llama.cpp restarts are bit-identical on every record for both models. vLLM restarts flip 0, 5 and 20 decisions at BF16, FP8 and NVFP4 on Clef-flash and 4, 0 and 22 on Clef; a third instance of Clef's quantized builds (exploratory) leaves FP8 at 0 and puts NVFP4 at 4 to 22, depending on which two instances are compared. An engine change at BF16 flips 6 to 16, a batch-size change 8 to 15, and the Gated DeltaNet kernel transformers selects unasked 10 to 14. Quantization inside one engine moves more: for Clef-flash and Clef, 0.88% and 1.04% at Q8_0, 2.12% and 1.62% at FP8, 5.79% and 3.50% at Q4_K_M, and 5.79% and 5.67% at NVFP4. On both models, every 4-bit interval excludes every non-quantization source. Two of our five pre-registered predictions failed, and the same two fail when the tests are rerun on the 27B: FP8 is not inside restart noise, and changing engine moves fewer decisions than 8-bit quantization does. Accuracy hides most of this. Over the full 31,275 public questions, Clef's Q4_K_M build moves accuracy by a net six questions (-0.02 points [-0.20, +0.16]) while 436 of its decisions get worse (exploratory), and NVFP4 costs Clef-flash 0.95 points and Clef 0.65. We release the code, quantization recipes, per-record outputs and the pre-registration.",
+   "authors": [
+    "Aleks Blagojevich",
+    "Trevor Sunderland"
+   ],
+   "signals": {
+    "upvotes": 4.0,
+    "comments": 4.0
+   },
+   "artifacts": {
+    "models": [
+     "Level5Tech/clef-flash-FP8",
+     "Level5Tech/clef-flash-NVFP4",
+     "Level5Tech/clef-FP8",
+     "Level5Tech/clef-NVFP4",
+     "Level5Tech/clef-flash-GGUF",
+     "Level5Tech/clef-GGUF"
+    ],
+    "datasets": []
+   },
+   "tags": [],
+   "score": 10.702,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.12069",
+   "title": "MPEG-Diffusion: Mixed-Resolution Video Generation",
+   "url": "https://huggingface.co/papers/2611.12069",
+   "published": "2026-11-09T00:00:00.000Z",
+   "summary": "Video diffusion transformers (DiTs) generate realistic videos, but their heavy computational cost limits broader real-world applications. Mixed-resolution generation reduces this cost by generating the visually important region at high resolution (HR) and the rest at low resolution (LR), yet existing methods suffer a severe quality drop on videos and require knowing the HR region in advance. We show that these failures are not inherent to mixed resolution, and propose MPEG-Diffusion to address their three root causes: (1) dual-resolution attention to mitigate the curse of mixed resolution, where each query reads the K/V of its own resolution, (2) a mixed-resolution decoder to blend the HR and LR latents before decoding and resolve distortion, and (3) a self-selected HR region using the DiT's knowledge to find the visually important region without requiring it in advance. Processing only 30% of full-resolution tokens, MPEG-Diffusion speeds up denoising by 4.8times on Wan2.1 14B (3.8times on 1.3B), outperforming prior methods on nearly every metric. In the user study, we demonstrate the high quality of MPEG-Diffusion, with raters preferring it over prior mixed-resolution methods in over 90% of pairs and rating it close to full resolution.",
+   "authors": [
+    "Dennis Menn",
+    "Tianpei Gu",
+    "Guande He",
+    "Aryan V S",
+    "Yanke Song",
+    "Nan Liu",
+    "Desai Xie",
+    "Xun Huang",
+    "Chenfeng Xu",
+    "Diana Marculescu"
+   ],
+   "signals": {
+    "upvotes": 7.0,
+    "comments": 2.0
+   },
+   "artifacts": {
+    "models": [
+     "johndpope/MiniMax-H3-MPEG-Diffusion"
+    ],
+    "datasets": [
+     "johndpope/MiniMax-H3-pexels-people-text"
+    ]
+   },
+   "tags": [
+    "video diffusion transformers",
+    "DiTs",
+    "mixed-resolution generation",
+    "dual-resolution attention",
+    "curse of mixed resolution",
+    "mixed-resolution decoder",
+    "HR latents",
+    "LR latents"
+   ],
+   "score": 10.488,
+   "claims": [
+    {
+     "kind": "hf_dataset",
+     "statement": "공개 데이터셋 johndpope/MiniMax-H3-pexels-people-text가 실제로 존재하고 접근 가능",
+     "params": {
+      "repo": "johndpope/MiniMax-H3-pexels-people-text"
+     },
+     "quote": null,
+     "id": "f5cfde7b7fae"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_dataset",
+      "statement": "공개 데이터셋 johndpope/MiniMax-H3-pexels-people-text가 실제로 존재하고 접근 가능",
+      "params": {
+       "repo": "johndpope/MiniMax-H3-pexels-people-text"
+      },
+      "quote": null,
+      "id": "f5cfde7b7fae"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_dataset",
+     "summary": "데이터셋이 실제로 존재하고 접근 가능",
+     "evidence": [
+      {
+       "description": "데이터셋 저장소 메타데이터",
+       "url": "https://huggingface.co/datasets/johndpope/MiniMax-H3-pexels-people-text",
+       "revision": "571a94203abc2589c7c1c125bc5a361bc325fcfc",
+       "retrieved_at": "2026-11-18T22:20:54+00:00",
+       "data": {
+        "gated": false,
+        "license": "other",
+        "downloads": 205
+       }
+      },
+      {
+       "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+       "url": "https://datasets-server.huggingface.co/size?dataset=johndpope/MiniMax-H3-pexels-people-text",
+       "revision": "571a94203abc2589c7c1c125bc5a361bc325fcfc",
+       "retrieved_at": null,
+       "data": {
+        "num_rows": 1951,
+        "num_bytes_memory": 634158,
+        "num_bytes_parquet_files": 233833,
+        "partial": false
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_papers",
+   "section": "paper",
+   "id": "arxiv:2611.23034",
+   "title": "M3OPD-Reasoner: An Open Recipe for Post-Training Multimodal Reasoning with Multi-Teacher On-Policy Distillation",
+   "url": "https://huggingface.co/papers/2611.23034",
+   "published": "2026-11-17T00:00:00.000Z",
+   "summary": "Multi-Teacher On-Policy Distillation (MOPD) enables a single student to absorb the skills of several domain teachers by learning from its own generated responses. We present Multimodal Model Multi-Teacher On-Policy Distillation Reasoner (M3OPD-Reasoner), a fully open recipe for post-training vision-language models (VLMs) over three reasoning domains: image STEM, image perception, and video. We curate two datasets, M3OPD-SFT-1.35M for supervised fine-tuning (SFT) and M3OPD-RL-193K for reinforcement learning (RL) with verifiable rewards. On these data, we compare post-training recipes that start from Qwen3.5-9B: training one model on the mixed data of all domains (MixSFT and MixRL), and training one teacher per domain with Group Sequence Policy Optimization (GSPO), directly or after an SFT warm-up, and distilling the teachers into one student with MOPD. We evaluate on 21 image STEM, image perception, and video reasoning benchmarks after we decontaminate the training data against them. The comparison establishes MOPD of teachers trained with GSPO directly from Qwen3.5-9B as the best recipe: the student closely matches each teacher on its own domain and is on average above the mixed-training baselines on the same prompts. Since MOPD already merges the domain capabilities that MixRL would otherwise have to learn, its student is a stronger starting point for RL, and we ask whether the same data can carry the model further from there: we add MixRL on top of the MOPD student, on the same prompts and with the same settings, which, to our knowledge, no prior VLM recipe has studied. The same prompts still improve the MOPD student, with no collapse, and give our main model, M3OPD-Reasoner-9B. MOPD and MixRL can therefore work as consecutive stages that get more out of the same data. We release all data, the training code, and the checkpoints of every stage.",
+   "authors": [
+    "Nguyen Quang Trung",
+    "Hoang Phan",
+    "Shuo Sun",
+    "Longyin Zhang",
+    "AiTi Aw"
+   ],
+   "signals": {
+    "upvotes": 2.0,
+    "comments": 1.0
+   },
+   "artifacts": {
+    "models": [
+     "ngqtrung/M3OPD-MixSFT-9B",
+     "ngqtrung/M3OPD-Warmup-SFT-Video-9B",
+     "ngqtrung/M3OPD-Teacher-ImageSTEM-9B",
+     "ngqtrung/M3OPD-Teacher-ImagePerception-9B",
+     "ngqtrung/M3OPD-Teacher-Video-9B",
+     "ngqtrung/M3OPD-MOPD-9B",
+     "ngqtrung/M3OPD-MixRL-Baseline-9B",
+     "ngqtrung/M3OPD-Reasoner-9B",
+     "ngqtrung/M3OPD-Warmup-Teacher-ImageSTEM-9B",
+     "ngqtrung/M3OPD-Warmup-Teacher-ImagePerception-9B"
+    ],
+    "datasets": [
+     "ngqtrung/M3OPD-RL-193K",
+     "ngqtrung/M3OPD-SFT-1.35M"
+    ]
+   },
+   "tags": [],
+   "score": 10.405,
+   "claims": [
+    {
+     "kind": "hf_dataset",
+     "statement": "공개 데이터셋 ngqtrung/M3OPD-RL-193K가 실제로 존재하고 접근 가능",
+     "params": {
+      "repo": "ngqtrung/M3OPD-RL-193K"
+     },
+     "quote": null,
+     "id": "4584a7e35215"
+    },
+    {
+     "kind": "hf_dataset",
+     "statement": "공개 데이터셋 ngqtrung/M3OPD-SFT-1.35M가 실제로 존재하고 접근 가능",
+     "params": {
+      "repo": "ngqtrung/M3OPD-SFT-1.35M"
+     },
+     "quote": null,
+     "id": "57431bcdd8c7"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_dataset",
+      "statement": "공개 데이터셋 ngqtrung/M3OPD-RL-193K가 실제로 존재하고 접근 가능",
+      "params": {
+       "repo": "ngqtrung/M3OPD-RL-193K"
+      },
+      "quote": null,
+      "id": "4584a7e35215"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_dataset",
+     "summary": "데이터셋이 실제로 존재하고 접근 가능",
+     "evidence": [
+      {
+       "description": "데이터셋 저장소 메타데이터",
+       "url": "https://huggingface.co/datasets/ngqtrung/M3OPD-RL-193K",
+       "revision": "0f14218fe03ec28e8e2cb5dbd57447f71501c095",
+       "retrieved_at": "2026-11-18T22:20:54+00:00",
+       "data": {
+        "gated": false,
+        "license": "other",
+        "downloads": 141
+       }
+      },
+      {
+       "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+       "url": "https://datasets-server.huggingface.co/size?dataset=ngqtrung/M3OPD-RL-193K",
+       "revision": "0f14218fe03ec28e8e2cb5dbd57447f71501c095",
+       "retrieved_at": null,
+       "data": {
+        "num_rows": 193027,
+        "num_bytes_memory": 88566077,
+        "num_bytes_parquet_files": 25005742,
+        "partial": false
+       }
+      }
+     ]
+    },
+    {
+     "claim": {
+      "kind": "hf_dataset",
+      "statement": "공개 데이터셋 ngqtrung/M3OPD-SFT-1.35M가 실제로 존재하고 접근 가능",
+      "params": {
+       "repo": "ngqtrung/M3OPD-SFT-1.35M"
+      },
+      "quote": null,
+      "id": "57431bcdd8c7"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_dataset",
+     "summary": "데이터셋이 실제로 존재하고 접근 가능",
+     "evidence": [
+      {
+       "description": "데이터셋 저장소 메타데이터",
+       "url": "https://huggingface.co/datasets/ngqtrung/M3OPD-SFT-1.35M",
+       "revision": "4d5fa3adb7d7173f39c5230f35d2a0ba5d378b26",
+       "retrieved_at": "2026-11-18T22:20:55+00:00",
+       "data": {
+        "gated": false,
+        "license": "other",
+        "downloads": 154
+       }
+      },
+      {
+       "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+       "url": "https://datasets-server.huggingface.co/size?dataset=ngqtrung/M3OPD-SFT-1.35M",
+       "revision": "4d5fa3adb7d7173f39c5230f35d2a0ba5d378b26",
+       "retrieved_at": null,
+       "data": {
+        "num_rows": 1351599,
+        "num_bytes_memory": 2377197366,
+        "num_bytes_parquet_files": 814854129,
+        "partial": false
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "arxiv",
+   "section": "paper",
+   "id": "arxiv:2611.22033",
+   "title": "Thinking Harder Doesn't Lead to Better Choices: Reasoning Effort Increases the Confidence but Not the Correctness of LLM Shopping Agents",
+   "url": "https://arxiv.org/abs/2611.22033",
+   "published": "2026-11-17T00:55:58+00:00",
+   "summary": "Large language models (LLMs) are increasingly deployed as autonomous shopping agents that process multimodal product listings (consisting of visual and text data) and recommend purchases on behalf of consumers. Naturally, one might assume that models with more thinking power would make higher-quality purchasing decisions. To test this belief, we ask two questions about such agents: does asking a model to think harder make it choose better products, and does the confidence it reports tell us the likelihood it may be wrong? We benchmark ten frontier models on three product-choice benchmarks built from WebShop, Amazon's SQID and Wayfair's WANDS platforms to see if LLMs with more thinking power actually make better-quality product purchase decisions. Across all three benchmarks, we found that increasing the thinking effort does not increase decision quality in a statistically meaningful way. The same change in thinking effort raises stated confidence at a statistically significant level, so extra thinking buys confidence rather than correctness. We also measure the calibration of these models (how well their reported confidence percentage matches their true correctness percentage) in these tasks and show that most models are not well-calibrated at every effort level. We also find that errors are strongly shared: when one model errs in a task, several others tend to err on that same task. Furthermore, on tasks where several models all err, a large number of them pick the same wrong product.",
+   "authors": [
+    "Adi Krishnamoorthy",
+    "X. Y. Han"
+   ],
+   "signals": {},
+   "artifacts": {
+    "models": [],
+    "datasets": []
+   },
+   "tags": [
+    "cs.AI",
+    "cs.CL",
+    "cs.CY",
+    "cs.HC",
+    "econ.GN"
+   ],
+   "score": 4.0,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "arxiv",
+   "section": "paper",
+   "id": "arxiv:2611.22148",
+   "title": "Long-Context Generation Is a Sampling Problem (When You Turn Up the Heat)",
+   "url": "https://arxiv.org/abs/2611.22148",
+   "published": "2026-11-17T03:30:03+00:00",
+   "summary": "Open-weight language models are widely observed to get worse the longer they generate. Often, attempts to fix this involve more training. At high temperature, The sampler, i.e. the rule that picks the next token out of the model's probabilities, decides whether long and agentic generation survives and/or thrives. We test 29 open-weight models from 1B to 122B parameters on ten established benchmarks plus needle retrieval out to one million tokens, covering SWE-bench Verified coding agents, long chain-of-thought reasoning, long-form writing, long structured output and long-context reading. Samplers that keep their pool of candidate tokens small and steady as temperature rises don't lose accuracy. Samplers that let in low-probability tokens fall apart. At temperature 2, coding agents running top-p, top-k or Top-H resolve 0 of 100 GitHub issues, while the same agents running top-nsigma resolve 46 to 62 and win every issue the two samplers disagree on, on three Qwen3.5 models. Over all benchmarks top-nsigma keeps a median 100% of its temperature-1 score where top-p keeps 26%. Counting how many tokens each sampler lets through explains why. In one Llama-3.1-8B story, going from temperature 1 to 2 grows top-p's pool from 4 tokens to 51,845 while top-nsigma stays at 3. Across 133 combinations of sampler setting and temperature, the typical pool size predicts judged quality (Spearman correlation of -0.77), and when we pick the pool at temperature 1 and only apply temperature afterwards, Top-H, min-p and p-less stop collapsing. At the default temperature of 1 most samplers perform about the same, We release all code and data to the public.",
+   "authors": [
+    "Allen G. Roush",
+    "Minh Nhat Nguyen",
+    "Ravid Shwartz-Ziv",
+    "Judah Goldfeder",
+    "Sanjay Basu"
+   ],
+   "signals": {},
+   "artifacts": {
+    "models": [],
+    "datasets": []
+   },
+   "tags": [
+    "cs.AI",
+    "cs.CL"
+   ],
+   "score": 4.0,
+   "claims": [
+    {
+     "kind": "reported_params",
+     "statement": "122B 파라미터 모델",
+     "params": {
+      "value": "122B"
+     },
+     "quote": "e test 29 open-weight models from 1B to 122B parameters on ten established",
+     "id": "3d315e92ac53"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "reported_params",
+      "statement": "122B 파라미터 모델",
+      "params": {
+       "value": "122B"
+      },
+      "quote": "e test 29 open-weight models from 1B to 122B parameters on ten established",
+      "id": "3d315e92ac53"
+     },
+     "verdict": "unverifiable",
+     "tier": "reported",
+     "method": "none",
+     "summary": "'reported_params' 종류의 검증기가 없음 — 자기보고 수치로 취급",
+     "evidence": []
+    }
+   ]
+  },
+  {
+   "source": "arxiv",
+   "section": "paper",
+   "id": "arxiv:2611.22203",
+   "title": "EGS: A Complementary Safety Framework for Educational LLMs",
+   "url": "https://arxiv.org/abs/2611.22203",
+   "published": "2026-11-17T04:40:42+00:00",
+   "summary": "Large Language Models (LLMs) offer strong potential for personalized education, but adolescent-facing deployment raises risks of toxic, biased, misleading, or developmentally inappropriate content. We argue that educational safety should move beyond binary refusal: student queries are often ambiguous or curiosity-driven, requiring contextual guidance rather than simple blocking. We introduce the Educational Guardrail System (EGS), a lightweight, model-agnostic runtime framework that complements intrinsic alignment through query moderation, scenario-aware pedagogical guidance, and response moderation. EGS triages inputs by risk level, redirects gray-zone queries with category-specific educational interventions, and audits outputs before delivery. Experiments across general and education-specific benchmarks show that EGS improves moderation performance, refusal quality, and jailbreak robustness across diverse LLMs. These findings suggest that defense-in-depth guardrails can strengthen safety while preserving the pedagogical utility required in educational LLMs. Our code and model weights will be publicly available to support community adoption.",
+   "authors": [
+    "Zexuan Fei",
+    "Zhengnan Guo",
+    "Yiming Luo",
+    "Kaiyi Huang",
+    "Aimin Zhou",
+    "Bo Jiang",
+    "Fei Tan"
+   ],
+   "signals": {},
+   "artifacts": {
+    "models": [],
+    "datasets": []
+   },
+   "tags": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "score": 4.0,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "hf_models",
+   "section": "model",
+   "id": "hf-model:tencent/Hy4-flash",
+   "title": "tencent/Hy4-flash",
+   "url": "https://huggingface.co/tencent/Hy4-flash",
+   "published": "2026-11-17T03:44:46.000Z",
+   "summary": "pipeline: image-text-to-text; library: transformers",
+   "authors": [
+    "tencent"
+   ],
+   "signals": {
+    "likes": 225.0,
+    "trending": 204.0,
+    "downloads": 159.0
+   },
+   "artifacts": {
+    "models": [
+     "tencent/Hy4-flash"
+    ],
+    "papers": []
+   },
+   "tags": [
+    "license:other"
+   ],
+   "score": 7.632,
+   "claims": [
+    {
+     "kind": "hf_model_params",
+     "statement": "모델 카드 선언: 총 파라미터 155.5B",
+     "params": {
+      "repo": "tencent/Hy4-flash",
+      "value": "155.5B",
+      "scope": "total"
+     },
+     "quote": "itecture | Mixture-of-Experts (MoE) |\n| Total Parameters (excluding Engram, ViT, and DFly2) | 155.5B |\n| Engram Paramete",
+     "id": "76b3ed37de00"
+    },
+    {
+     "kind": "hf_model_params",
+     "statement": "모델 카드 선언: 활성 파라미터 12B",
+     "params": {
+      "repo": "tencent/Hy4-flash",
+      "value": "12B",
+      "scope": "active"
+     },
+     "quote": "luding 64B Engram parameters) with just 12B active parameters per toke",
+     "id": "867b43ed133d"
+    },
+    {
+     "kind": "hf_model_context",
+     "statement": "모델 카드 선언: 컨텍스트 길이 1M",
+     "params": {
+      "repo": "tencent/Hy4-flash",
+      "value": "1M"
+     },
+     "quote": "inputs, generates text, and supports a context window of up to 1M tokens.\n\nIts 42-lay",
+     "id": "bcce65a90509"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "모델 카드 선언: 총 파라미터 155.5B",
+      "params": {
+       "repo": "tencent/Hy4-flash",
+       "value": "155.5B",
+       "scope": "total"
+      },
+      "quote": "itecture | Mixture-of-Experts (MoE) |\n| Total Parameters (excluding Engram, ViT, and DFly2) | 155.5B |\n| Engram Paramete",
+      "id": "76b3ed37de00"
+     },
+     "verdict": "refuted",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 156B vs safetensors 실측 220B (오차 41.64%, 허용 10%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더 집계 파라미터 수",
+       "url": "https://huggingface.co/api/models/tencent/Hy4-flash",
+       "revision": "d88c9dfd96ba4f2e6b92adba0b8e8f1c8696f959",
+       "retrieved_at": "2026-11-18T22:20:55+00:00",
+       "data": {
+        "total": 220251201958,
+        "by_dtype": {
+         "BF16": 220241986961,
+         "F32": 8731725,
+         "I32": 483272
+        }
+       }
+      }
+     ]
+    },
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "모델 카드 선언: 활성 파라미터 12B",
+      "params": {
+       "repo": "tencent/Hy4-flash",
+       "value": "12B",
+       "scope": "active"
+      },
+      "quote": "luding 64B Engram parameters) with just 12B active parameters per toke",
+      "id": "867b43ed133d"
+     },
+     "verdict": "refuted",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 12B vs 텐서 헤더 기반 활성 파라미터(전문가 512개 중 16개) 76.3B (오차 535.96%, 허용 10%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더 집계 파라미터 수",
+       "url": "https://huggingface.co/api/models/tencent/Hy4-flash",
+       "revision": "d88c9dfd96ba4f2e6b92adba0b8e8f1c8696f959",
+       "retrieved_at": "2026-11-18T22:20:55+00:00",
+       "data": {
+        "total": 220251201958,
+        "by_dtype": {
+         "BF16": 220241986961,
+         "F32": 8731725,
+         "I32": 483272
+        }
+       }
+      },
+      {
+       "description": "safetensors 헤더의 텐서 shape로 센 파라미터 수 (가중치 본문 미다운로드)",
+       "url": "https://huggingface.co/tencent/Hy4-flash/tree/d88c9dfd96ba4f2e6b92adba0b8e8f1c8696f959",
+       "revision": "d88c9dfd96ba4f2e6b92adba0b8e8f1c8696f959",
+       "retrieved_at": null,
+       "data": {
+        "total": 220251201958,
+        "active": 76315271590,
+        "expert_params": 148579024896,
+        "embedding": 371195904,
+        "n_experts": 512,
+        "top_k": 16,
+        "shards": 148
+       }
+      }
+     ]
+    },
+    {
+     "claim": {
+      "kind": "hf_model_context",
+      "statement": "모델 카드 선언: 컨텍스트 길이 1M",
+      "params": {
+       "repo": "tencent/Hy4-flash",
+       "value": "1M"
+      },
+      "quote": "inputs, generates text, and supports a context window of up to 1M tokens.\n\nIts 42-lay",
+      "id": "bcce65a90509"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_model_context",
+     "summary": "주장 1M vs config 후보 ['1.05M'] — 일치",
+     "evidence": [
+      {
+       "description": "config.json의 위치 임베딩 길이와 RoPE 스케일링",
+       "url": "https://huggingface.co/tencent/Hy4-flash/blob/d88c9dfd96ba4f2e6b92adba0b8e8f1c8696f959/config.json",
+       "revision": "d88c9dfd96ba4f2e6b92adba0b8e8f1c8696f959",
+       "retrieved_at": null,
+       "data": {
+        "candidates": [
+         1048576
+        ],
+        "rope_scaling": null
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_models",
+   "section": "model",
+   "id": "hf-model:harness-hub/Qwen3.8-27B-pi-adapted",
+   "title": "harness-hub/Qwen3.8-27B-pi-adapted",
+   "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted",
+   "published": "2026-11-16T06:52:31.000Z",
+   "summary": "pipeline: image-text-to-text; library: peft",
+   "authors": [
+    "harness-hub"
+   ],
+   "signals": {
+    "likes": 385.0,
+    "trending": 361.0,
+    "downloads": 377.0
+   },
+   "artifacts": {
+    "models": [
+     "harness-hub/Qwen3.8-27B-pi-adapted"
+    ],
+    "papers": []
+   },
+   "tags": [
+    "license:apache-2.0"
+   ],
+   "score": 7.43,
+   "claims": [
+    {
+     "kind": "hf_model_params",
+     "statement": "harness-hub/Qwen3.8-27B-pi-adapted의 총 파라미터 수는 약 27B (이름 표기)",
+     "params": {
+      "repo": "harness-hub/Qwen3.8-27B-pi-adapted",
+      "value": "27B",
+      "scope": "total"
+     },
+     "quote": "harness-hub/Qwen3.8-27B-pi-adapted",
+     "id": "574aa87994b7"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "harness-hub/Qwen3.8-27B-pi-adapted의 총 파라미터 수는 약 27B (이름 표기)",
+      "params": {
+       "repo": "harness-hub/Qwen3.8-27B-pi-adapted",
+       "value": "27B",
+       "scope": "total"
+      },
+      "quote": "harness-hub/Qwen3.8-27B-pi-adapted",
+      "id": "574aa87994b7"
+     },
+     "verdict": "refuted",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 27B vs safetensors 헤더 집계 159M (오차 99.41%, 허용 10%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더의 텐서 shape로 센 파라미터 수 (가중치 본문 미다운로드)",
+       "url": "https://huggingface.co/harness-hub/Qwen3.8-27B-pi-adapted/tree/78eacecca691deb59f703fc270120e2e5b2e0194",
+       "revision": "78eacecca691deb59f703fc270120e2e5b2e0194",
+       "retrieved_at": null,
+       "data": {
+        "total": 159383552,
+        "active": 159383552,
+        "expert_params": 0,
+        "embedding": 0,
+        "n_experts": null,
+        "top_k": null,
+        "shards": 1
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_models",
+   "section": "model",
+   "id": "hf-model:KORMo-VL/KORMo-Web-4B",
+   "title": "KORMo-VL/KORMo-Web-4B",
+   "url": "https://huggingface.co/KORMo-VL/KORMo-Web-4B",
+   "published": "2026-11-14T11:22:47.000Z",
+   "summary": "pipeline: image-text-to-text; library: transformers",
+   "authors": [
+    "KORMo-VL"
+   ],
+   "signals": {
+    "likes": 52.0,
+    "trending": 41.0,
+    "downloads": 212.0
+   },
+   "artifacts": {
+    "models": [
+     "KORMo-VL/KORMo-Web-4B"
+    ],
+    "papers": []
+   },
+   "tags": [
+    "license:apache-2.0"
+   ],
+   "score": 6.127,
+   "claims": [
+    {
+     "kind": "hf_model_params",
+     "statement": "KORMo-VL/KORMo-Web-4B의 총 파라미터 수는 약 4B (이름 표기)",
+     "params": {
+      "repo": "KORMo-VL/KORMo-Web-4B",
+      "value": "4B",
+      "scope": "total"
+     },
+     "quote": "KORMo-VL/KORMo-Web-4B",
+     "id": "f0600011d237"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "KORMo-VL/KORMo-Web-4B의 총 파라미터 수는 약 4B (이름 표기)",
+      "params": {
+       "repo": "KORMo-VL/KORMo-Web-4B",
+       "value": "4B",
+       "scope": "total"
+      },
+      "quote": "KORMo-VL/KORMo-Web-4B",
+      "id": "f0600011d237"
+     },
+     "verdict": "refuted",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 4B vs safetensors 실측 5.17B (오차 29.37%, 허용 12%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더 집계 파라미터 수",
+       "url": "https://huggingface.co/api/models/KORMo-VL/KORMo-Web-4B",
+       "revision": "841f53f98d35ce070d3edb2c50fb5bf2a04bfcaf",
+       "retrieved_at": "2026-11-18T22:21:03+00:00",
+       "data": {
+        "total": 5174964736,
+        "by_dtype": {
+         "BF16": 5174964736
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_models",
+   "section": "model",
+   "id": "hf-model:KORMo-VL/KORMo-Web-9B",
+   "title": "KORMo-VL/KORMo-Web-9B",
+   "url": "https://huggingface.co/KORMo-VL/KORMo-Web-9B",
+   "published": "2026-11-14T15:37:16.000Z",
+   "summary": "pipeline: image-text-to-text; library: transformers",
+   "authors": [
+    "KORMo-VL"
+   ],
+   "signals": {
+    "likes": 49.0,
+    "trending": 39.0,
+    "downloads": 270.0
+   },
+   "artifacts": {
+    "models": [
+     "KORMo-VL/KORMo-Web-9B"
+    ],
+    "papers": []
+   },
+   "tags": [
+    "license:apache-2.0"
+   ],
+   "score": 6.073,
+   "claims": [
+    {
+     "kind": "hf_model_params",
+     "statement": "KORMo-VL/KORMo-Web-9B의 총 파라미터 수는 약 9B (이름 표기)",
+     "params": {
+      "repo": "KORMo-VL/KORMo-Web-9B",
+      "value": "9B",
+      "scope": "total"
+     },
+     "quote": "KORMo-VL/KORMo-Web-9B",
+     "id": "40af235ed646"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "KORMo-VL/KORMo-Web-9B의 총 파라미터 수는 약 9B (이름 표기)",
+      "params": {
+       "repo": "KORMo-VL/KORMo-Web-9B",
+       "value": "9B",
+       "scope": "total"
+      },
+      "quote": "KORMo-VL/KORMo-Web-9B",
+      "id": "40af235ed646"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 9B vs safetensors 실측 9.41B (오차 4.55%, 허용 10%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더 집계 파라미터 수",
+       "url": "https://huggingface.co/api/models/KORMo-VL/KORMo-Web-9B",
+       "revision": "7037e1ffee87521097f8f3d8c591f4e9b1d3eb6d",
+       "retrieved_at": "2026-11-18T22:21:03+00:00",
+       "data": {
+        "total": 9409813744,
+        "by_dtype": {
+         "BF16": 9409813744
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_models",
+   "section": "model",
+   "id": "hf-model:nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+   "title": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+   "url": "https://huggingface.co/nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+   "published": "2026-11-11T20:23:07.000Z",
+   "summary": "pipeline: text-generation; library: Model Optimizer",
+   "authors": [
+    "nvidia"
+   ],
+   "signals": {
+    "likes": 62.0,
+    "trending": 59.0,
+    "downloads": 290.0
+   },
+   "artifacts": {
+    "models": [
+     "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft"
+    ],
+    "papers": []
+   },
+   "tags": [
+    "license:other"
+   ],
+   "score": 5.624,
+   "claims": [
+    {
+     "kind": "hf_model_params",
+     "statement": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft의 총 파라미터 수는 약 4B (이름 표기)",
+     "params": {
+      "repo": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+      "value": "4B",
+      "scope": "total"
+     },
+     "quote": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+     "id": "e568c87c1ba9"
+    },
+    {
+     "kind": "hf_model_params",
+     "statement": "모델 카드 선언: 총 파라미터 4.21B",
+     "params": {
+      "repo": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+      "value": "4.21B",
+      "scope": "total"
+     },
+     "quote": "e.co/Qwen/Qwen3.5-4B).\n**Number of Model Parameters:** 4.21B <br>\n**This model w",
+     "id": "5f6458efcb68"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft의 총 파라미터 수는 약 4B (이름 표기)",
+      "params": {
+       "repo": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+       "value": "4B",
+       "scope": "total"
+      },
+      "quote": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+      "id": "e568c87c1ba9"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 4B vs safetensors 실측 4.21B (오차 5.14%, 허용 12%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더 집계 파라미터 수",
+       "url": "https://huggingface.co/api/models/nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+       "revision": "bc5ad93d03d96a9c1ef49748e00ec5130a7080de",
+       "retrieved_at": "2026-11-18T22:21:03+00:00",
+       "data": {
+        "total": 4205751296,
+        "by_dtype": {
+         "BF16": 4205751296
+        }
+       }
+      }
+     ]
+    },
+    {
+     "claim": {
+      "kind": "hf_model_params",
+      "statement": "모델 카드 선언: 총 파라미터 4.21B",
+      "params": {
+       "repo": "nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+       "value": "4.21B",
+       "scope": "total"
+      },
+      "quote": "e.co/Qwen/Qwen3.5-4B).\n**Number of Model Parameters:** 4.21B <br>\n**This model w",
+      "id": "5f6458efcb68"
+     },
+     "verdict": "verified",
+     "tier": "source",
+     "method": "hf_model_params",
+     "summary": "주장 4.21B vs safetensors 실측 4.21B (오차 0.10%, 허용 10%)",
+     "evidence": [
+      {
+       "description": "safetensors 헤더 집계 파라미터 수",
+       "url": "https://huggingface.co/api/models/nvidia/Qwen3.5-4B-Qwen3.8-27B-Draft",
+       "revision": "bc5ad93d03d96a9c1ef49748e00ec5130a7080de",
+       "retrieved_at": "2026-11-18T22:21:03+00:00",
+       "data": {
+        "total": 4205751296,
+        "by_dtype": {
+         "BF16": 4205751296
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "source": "hf_models",
+   "section": "model",
+   "id": "hf-model:iapp/OpenThai2.1-OCR-Markdown-20261118",
+   "title": "iapp/OpenThai2.1-OCR-Markdown-20261118",
+   "url": "https://huggingface.co/iapp/OpenThai2.1-OCR-Markdown-20261118",
+   "published": "2026-11-09T14:21:29.000Z",
+   "summary": "pipeline: image-text-to-text; library: None",
+   "authors": [
+    "iapp"
+   ],
+   "signals": {
+    "likes": 55.0,
+    "trending": 38.0,
+    "downloads": 12496.0
+   },
+   "artifacts": {
+    "models": [
+     "iapp/OpenThai2.1-OCR-Markdown-20261118"
+    ],
+    "papers": []
+   },
+   "tags": [
+    "license:other"
+   ],
+   "score": 5.381,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "rss:Hugging Face",
+   "section": "blog",
+   "id": "url:af1852b4c46dc30e",
+   "title": "180B Parameters, 32GB of RAM: Pushing MoE Inference to the Limit with Transformers",
+   "url": "https://huggingface.co/blog/moe-expert-streaming",
+   "published": "2026-11-18T00:00:00+00:00",
+   "summary": "",
+   "authors": [
+    "Hugging Face"
+   ],
+   "signals": {},
+   "artifacts": {},
+   "tags": [],
+   "score": 3.375,
+   "claims": [
+    {
+     "kind": "reported_params",
+     "statement": "180B 파라미터 모델",
+     "params": {
+      "value": "180B"
+     },
+     "quote": "180B Parameters, 32GB of RAM: Pushi",
+     "id": "4b9e63e16ace"
+    }
+   ],
+   "verifications": [
+    {
+     "claim": {
+      "kind": "reported_params",
+      "statement": "180B 파라미터 모델",
+      "params": {
+       "value": "180B"
+      },
+      "quote": "180B Parameters, 32GB of RAM: Pushi",
+      "id": "4b9e63e16ace"
+     },
+     "verdict": "unverifiable",
+     "tier": "reported",
+     "method": "none",
+     "summary": "'reported_params' 종류의 검증기가 없음 — 자기보고 수치로 취급",
+     "evidence": []
+    }
+   ]
+  },
+  {
+   "source": "rss:OpenAI",
+   "section": "blog",
+   "id": "url:8b6ac2940fdc0d0e",
+   "title": "Managing frontier AI risk: From training to deployment",
+   "url": "https://openai.com/index/managing-frontier-ai-risk",
+   "published": "2026-11-18T06:00:00+00:00",
+   "summary": "OpenAI explains how it manages frontier AI risk from training through deployment with model alignment, sandboxing, blocking safeguards, and monitoring.",
+   "authors": [
+    "OpenAI"
+   ],
+   "signals": {},
+   "artifacts": {},
+   "tags": [],
+   "score": 2.25,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "rss:Google DeepMind",
+   "section": "blog",
+   "id": "url:0c3c8b23c6caec3f",
+   "title": "Introducing Gemini 4 Neon",
+   "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+   "published": "2026-11-18T21:35:43+00:00",
+   "summary": "",
+   "authors": [
+    "Google DeepMind"
+   ],
+   "signals": {},
+   "artifacts": {},
+   "tags": [],
+   "score": 1.5,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "rss:OpenAI",
+   "section": "blog",
+   "id": "url:53f2a14376dda94d",
+   "title": "Inside the Codex sandbox",
+   "url": "https://openai.com/index/inside-the-codex-sandbox",
+   "published": "2026-11-18T08:00:00+00:00",
+   "summary": "See how Codex runs commands on your machine while enforcing the filesystem and network limits you control across macOS, Linux, and Windows.",
+   "authors": [
+    "OpenAI"
+   ],
+   "signals": {},
+   "artifacts": {},
+   "tags": [],
+   "score": 1.5,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "rss:OpenAI",
+   "section": "blog",
+   "id": "url:549a77347d5e1e5f",
+   "title": "Introducing GPT-6.2 Astra and Sol",
+   "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+   "published": "2026-11-17T17:45:00+00:00",
+   "summary": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
+   "authors": [
+    "OpenAI"
+   ],
+   "signals": {},
+   "artifacts": {},
+   "tags": [],
+   "score": 1.5,
+   "claims": [],
+   "verifications": []
+  },
+  {
+   "source": "rss:Google DeepMind",
+   "section": "blog",
+   "id": "url:652211f5c064d475",
+   "title": "Genie 4 is now available",
+   "url": "https://deepmind.google/blog/genie-4-is-now-available/",
+   "published": "2026-11-18T18:13:42+00:00",
+   "summary": "",
+   "authors": [
+    "Google DeepMind"
+   ],
+   "signals": {},
+   "artifacts": {},
+   "tags": [],
+   "score": 1.5,
+   "claims": [],
+   "verifications": []
+  }
+ ],
+ "ledger": [
+  {
+   "file": "claims/algorithms/attention.yaml",
+   "title": "어텐션 계열 알고리즘의 정확성 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "FlashAttention의 블록 단위 온라인 소프트맥스는 근사가 아니라 정확한 어텐션이다 (arXiv:2205.14135)",
+     "params": {
+      "name": "online_softmax_attention",
+      "seq_len": 64,
+      "dim": 16,
+      "block": 8,
+      "causal": true
+     },
+     "quote": null,
+     "id": "b05de4ab5943"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:online_softmax_attention",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 5.55e-16), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'online_softmax_attention': FlashAttention식 블록 단위 온라인 소프트맥스가 정확한 어텐션과 같다.",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 5.551115123125783e-16
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/attention.yaml",
+   "title": "어텐션 계열 알고리즘의 정확성 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "로짓 규모가 커도(×8) 온라인 소프트맥스는 수치적으로 정확하다",
+     "params": {
+      "name": "online_softmax_attention",
+      "seq_len": 48,
+      "dim": 8,
+      "block": 16,
+      "causal": false,
+      "scale": 8.0
+     },
+     "quote": null,
+     "id": "303a6271f938"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:online_softmax_attention",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 7.11e-15), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'online_softmax_attention': FlashAttention식 블록 단위 온라인 소프트맥스가 정확한 어텐션과 같다.",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 7.105427357601002e-15
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/attention.yaml",
+   "title": "어텐션 계열 알고리즘의 정확성 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "RoPE를 적용한 q·k 내적은 상대 위치에만 의존한다 (arXiv:2104.09864)",
+     "params": {
+      "name": "rope_relative_position",
+      "dim": 64,
+      "base": 10000.0
+     },
+     "quote": null,
+     "id": "e9b33271e89e"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:rope_relative_position",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 1.93e-12), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'rope_relative_position': RoPE 적용 후 q·k 내적은 절대 위치가 아니라 상대 위치(m-n)에만 의존한다.",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 1.9326762412674725e-12,
+       "m": 3413,
+       "n": 15,
+       "shift": 2337
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/attention.yaml",
+   "title": "어텐션 계열 알고리즘의 정확성 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "GQA는 KV 헤드를 복제한 MHA와 같은 출력을 낸다 (arXiv:2305.13245)",
+     "params": {
+      "name": "gqa_equals_repeated_mha",
+      "n_heads": 8,
+      "n_kv_heads": 2
+     },
+     "quote": null,
+     "id": "df95df6e432b"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:gqa_equals_repeated_mha",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 0.00e+00), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'gqa_equals_repeated_mha': GQA는 KV 헤드를 그룹 수만큼 복제한 MHA와 출력이 같다 (Ainslie et al. 2023).",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 0.0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/attention.yaml",
+   "title": "어텐션 계열 알고리즘의 정확성 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "KV 캐시 증분 디코딩은 전체 재계산과 같은 결과를 낸다",
+     "params": {
+      "name": "kv_cache_incremental_decoding"
+     },
+     "quote": null,
+     "id": "d31255a693d1"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:kv_cache_incremental_decoding",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 8.88e-16), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'kv_cache_incremental_decoding': KV 캐시로 한 토큰씩 디코딩한 결과는 매번 전체 인과 어텐션을 다시 계산한 결과와 같다.",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 8.881784197001252e-16
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/attention.yaml",
+   "title": "어텐션 계열 알고리즘의 정확성 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "MLA의 가중치 흡수(W_UK를 쿼리 쪽으로 흡수)는 잠재 벡터를 복원해 계산한 어텐션 점수와 같다 (arXiv:2405.04434)",
+     "params": {
+      "name": "mla_weight_absorption",
+      "d_model": 64,
+      "d_latent": 16,
+      "n_heads": 4,
+      "head_dim": 16
+     },
+     "quote": null,
+     "id": "6e99d6da1ade"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:mla_weight_absorption",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 7.11e-15), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'mla_weight_absorption': MLA: 잠재 KV c만 캐시하고 W_UK를 쿼리에 흡수해도 어텐션 점수가 같다.",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 7.105427357601002e-15,
+       "kv_cache_ratio_vs_mha": 0.125
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/decoding_and_finetuning.yaml",
+   "title": "디코딩·미세조정 알고리즘 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "추측 디코딩의 거절 샘플링은 목표 모델 분포를 정확히 보존한다 (arXiv:2211.17192)",
+     "params": {
+      "name": "speculative_sampling_exact",
+      "vocab": 64,
+      "draft_quality": 0.3
+     },
+     "quote": null,
+     "id": "c50f29bdf05f"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:speculative_sampling_exact",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 6.94e-17), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'speculative_sampling_exact': 추측 디코딩의 거절 샘플링은 목표 모델 분포 p를 정확히 보존한다 (Leviathan et al. 2023).",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 6.938893903907228e-17,
+       "acceptance_rate": 0.6654123604465145
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/decoding_and_finetuning.yaml",
+   "title": "디코딩·미세조정 알고리즘 주장",
+   "source": null,
+   "item": null,
+   "expected": "refuted",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "(의도적 반례) 거절 시 잔차 분포 대신 목표 분포 p에서 다시 뽑아도 분포가 보존된다",
+     "params": {
+      "name": "speculative_resample_from_target",
+      "vocab": 64,
+      "draft_quality": 0.3
+     },
+     "quote": null,
+     "id": "5bef64434b75"
+    },
+    "verdict": "refuted",
+    "tier": "internal",
+    "method": "reproduction:speculative_resample_from_target",
+    "summary": "20회 시드 고정 시행에서 성질 불성립 (최대 오차 1.82e-02), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'speculative_resample_from_target': 거절 시 잔차 대신 목표 분포 p에서 다시 뽑는 변형이 p를 보존하는가 (보존하지 않음).",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 0.01823059653468065,
+       "acceptance_rate": 0.6252818396268611,
+       "failed_trial": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/algorithms/decoding_and_finetuning.yaml",
+   "title": "디코딩·미세조정 알고리즘 주장",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "algorithm",
+     "statement": "LoRA 병합 가중치는 어댑터 경로와 같은 출력을 내고 추가 파라미터는 r(d_in+d_out)개다 (arXiv:2106.09685)",
+     "params": {
+      "name": "lora_merge_equivalence",
+      "d_in": 128,
+      "d_out": 96,
+      "rank": 8,
+      "alpha": 16.0
+     },
+     "quote": null,
+     "id": "c323216ca4f1"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "reproduction:lora_merge_equivalence",
+    "summary": "20회 시드 고정 시행에서 성질 성립 (최대 오차 1.14e-13), 주장=성립",
+    "evidence": [
+     {
+      "description": "재현 'lora_merge_equivalence': LoRA 가중치 병합 W' = W + (α/r)·BA 는 어댑터 경로 출력과 같고, 추가 파라미터는 r·(d_in+d_out).",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "seed": 0,
+       "trials": 20,
+       "max_error": 1.1368683772161603e-13,
+       "extra_params": 1792
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/compute/training_compute.yaml",
+   "title": "대규모 훈련 연산량·메모리 산술 (재훈련 없이 공식으로 검증)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "training_flops",
+     "statement": "Llama 3 405B는 15.6T 토큰으로 3.8×10^25 FLOPs를 사용했다 (arXiv:2407.21783)",
+     "params": {
+      "params": "405B",
+      "tokens": "15.6T",
+      "flops": "3.8e25"
+     },
+     "quote": null,
+     "id": "fb06d62f426e"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "6ND",
+    "summary": "6·N·D = 6×405B(주장된 N)×15.6T = 3.79e+25 FLOPs vs 주장 3.8e+25 (오차 0.2%, 허용 20%)",
+    "evidence": [
+     {
+      "description": "6ND 계산",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "N": 405000000000.0,
+       "D": 15600000000000.0,
+       "6ND": 3.7908e+25
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/compute/training_compute.yaml",
+   "title": "대규모 훈련 연산량·메모리 산술 (재훈련 없이 공식으로 검증)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "training_flops",
+     "statement": "Chinchilla 70B는 1.4T 토큰으로 Gopher와 같은 약 5.76×10^23 FLOPs 예산에서 훈련됐다 (arXiv:2203.15556)",
+     "params": {
+      "params": "70B",
+      "tokens": "1.4T",
+      "flops": "5.76e23"
+     },
+     "quote": null,
+     "id": "0970bc05e29d"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "6ND",
+    "summary": "6·N·D = 6×70B(주장된 N)×1.4T = 5.88e+23 FLOPs vs 주장 5.76e+23 (오차 2.0%, 허용 20%)",
+    "evidence": [
+     {
+      "description": "6ND 계산",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "N": 70000000000.0,
+       "D": 1400000000000.0,
+       "6ND": 5.88e+23
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/compute/training_compute.yaml",
+   "title": "대규모 훈련 연산량·메모리 산술 (재훈련 없이 공식으로 검증)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "kv_cache_bytes",
+     "statement": "Llama 2 70B(80층, KV 헤드 8, head_dim 128)의 4K 컨텍스트 fp16 KV 캐시는 시퀀스당 약 1.34GB",
+     "params": {
+      "layers": 80,
+      "kv_heads": 8,
+      "head_dim": 128,
+      "seq_len": 4096,
+      "bytes_per_elem": 2,
+      "bytes": "1.34e9"
+     },
+     "quote": null,
+     "id": "95bb9d73aaa9"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "kv-cache-formula",
+    "summary": "2·80·8·128·4096·1·2 = 1.34BB vs 주장 1.34BB (오차 0.2%)",
+    "evidence": [
+     {
+      "description": "KV 캐시 공식",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "bytes": 1342177280.0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/datasets/datasets.yaml",
+   "title": "공개 데이터셋 주장 (HF 데이터셋 뷰어가 실제 parquet에서 센 값과 대조)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_dataset",
+     "statement": "Alpaca 지시 데이터는 52K 예제",
+     "params": {
+      "repo": "tatsu-lab/alpaca",
+      "rows": "52K"
+     },
+     "quote": null,
+     "id": "741301bfe527"
+    },
+    "verdict": "verified",
+    "tier": "source",
+    "method": "hf_dataset",
+    "summary": "행 수 주장 52K vs 실제 52K (오차 0.00%)",
+    "evidence": [
+     {
+      "description": "데이터셋 저장소 메타데이터",
+      "url": "https://huggingface.co/datasets/tatsu-lab/alpaca",
+      "revision": "dce01c9b08f87459cf36a430d809084718273017",
+      "retrieved_at": "2026-11-18T22:21:03+00:00",
+      "data": {
+       "gated": false,
+       "license": "cc-by-nc-4.0",
+       "downloads": 87541
+      }
+     },
+     {
+      "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+      "url": "https://datasets-server.huggingface.co/size?dataset=tatsu-lab/alpaca",
+      "revision": "dce01c9b08f87459cf36a430d809084718273017",
+      "retrieved_at": null,
+      "data": {
+       "num_rows": 52002,
+       "num_bytes_memory": 46410243,
+       "num_bytes_parquet_files": 24246638,
+       "partial": false
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/datasets/datasets.yaml",
+   "title": "공개 데이터셋 주장 (HF 데이터셋 뷰어가 실제 parquet에서 센 값과 대조)",
+   "source": null,
+   "item": null,
+   "expected": "refuted",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_dataset",
+     "statement": "GSM8K는 8.5K 문제 (arXiv:2110.14168 초록) — 실제 공개본은 8,792개",
+     "params": {
+      "repo": "openai/gsm8k",
+      "config": "main",
+      "rows": "8.5K"
+     },
+     "quote": null,
+     "id": "53d69f40af61"
+    },
+    "verdict": "refuted",
+    "tier": "source",
+    "method": "hf_dataset",
+    "summary": "행 수 주장 8.5K vs 실제 8.79K (오차 3.44%)",
+    "evidence": [
+     {
+      "description": "데이터셋 저장소 메타데이터",
+      "url": "https://huggingface.co/datasets/openai/gsm8k",
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "retrieved_at": "2026-11-18T22:21:03+00:00",
+      "data": {
+       "gated": false,
+       "license": [
+        "mit"
+       ],
+       "downloads": 1190689
+      }
+     },
+     {
+      "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+      "url": "https://datasets-server.huggingface.co/size?dataset=openai/gsm8k",
+      "revision": "740312add88f781978c0658806c59bc2815b9866",
+      "retrieved_at": null,
+      "data": {
+       "num_rows": 8792,
+       "num_bytes_memory": 4709831,
+       "num_bytes_parquet_files": 2725633,
+       "partial": false
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/datasets/datasets.yaml",
+   "title": "공개 데이터셋 주장 (HF 데이터셋 뷰어가 실제 parquet에서 센 값과 대조)",
+   "source": null,
+   "item": null,
+   "expected": "inconclusive",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_dataset",
+     "statement": "FineWeb-Edu는 1.3T 토큰 (토큰은 직접 세지 않으므로 크기 일관성만 확인)",
+     "params": {
+      "repo": "HuggingFaceFW/fineweb-edu",
+      "config": "default",
+      "tokens": "1.3T"
+     },
+     "quote": null,
+     "id": "71c3c0e80321"
+    },
+    "verdict": "inconclusive",
+    "tier": "source",
+    "method": "hf_dataset",
+    "summary": "토큰 주장 1.3T, 데이터 7.61TB → 토큰당 5.85바이트 — 크기와 모순되지 않음(토큰은 직접 세지 않음)",
+    "evidence": [
+     {
+      "description": "데이터셋 저장소 메타데이터",
+      "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "retrieved_at": "2026-11-18T22:21:03+00:00",
+      "data": {
+       "gated": false,
+       "license": "odc-by",
+       "downloads": 413801
+      }
+     },
+     {
+      "description": "데이터셋 뷰어가 parquet에서 집계한 크기",
+      "url": "https://datasets-server.huggingface.co/size?dataset=HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "retrieved_at": null,
+      "data": {
+       "num_rows": 1525223056,
+       "num_bytes_memory": 7608309585742,
+       "num_bytes_parquet_files": 4522727684984,
+       "partial": false
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/optimization.yaml",
+   "title": "Adam 편향 보정과 기본 부등식",
+   "source": "https://arxiv.org/abs/1412.6980",
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_identity",
+     "statement": "Adam의 1차 모멘트 지수이동평균 가중치 합은 1 - β^t (편향 보정 항의 근거)",
+     "params": {
+      "lhs": "(1 - b) * Sum(b^i, (i, 0, t - 1))",
+      "rhs": "1 - b^t",
+      "variables": {
+       "b": "positive",
+       "t": [
+        "positive",
+        "integer"
+       ],
+       "i": "integer"
+      }
+     },
+     "quote": null,
+     "id": "f6f1e3f07003"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "sympy.simplify",
+    "summary": "기호적으로 lhs - rhs = 0 증명; 교차 확인으로 200개 표본에서 반례 없음",
+    "evidence": [
+     {
+      "description": "sympy 정리 결과 (lhs - rhs)",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "simplified": "0"
+      }
+     },
+     {
+      "description": "무작위 표본 검사",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "tested": 200,
+       "seed": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/optimization.yaml",
+   "title": "Adam 편향 보정과 기본 부등식",
+   "source": "https://arxiv.org/abs/1412.6980",
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_inequality",
+     "statement": "모든 양수 x에 대해 log(1 + x) ≤ x",
+     "params": {
+      "lhs": "log(1 + x)",
+      "op": "<=",
+      "rhs": "x",
+      "variables": {
+       "x": "positive"
+      }
+     },
+     "quote": null,
+     "id": "43b040096bb6"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "sympy.minimum",
+    "summary": "정의역 Interval.open(0, oo)에서 양변 차의 하한 0 ≥ 0; 교차 확인으로 200개 표본에서 반례 없음",
+    "evidence": [
+     {
+      "description": "sympy 관계식 정리",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "relation": "-x + log(x + 1) <= 0"
+      }
+     },
+     {
+      "description": "정의역 위 하한",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "gap": "x - log(x + 1)",
+       "infimum": "0"
+      }
+     },
+     {
+      "description": "무작위 표본 검사",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "tested": 200,
+       "seed": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/optimization.yaml",
+   "title": "Adam 편향 보정과 기본 부등식",
+   "source": "https://arxiv.org/abs/1412.6980",
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_inequality",
+     "statement": "모든 실수 x에 대해 e^x ≥ 1 + x",
+     "params": {
+      "lhs": "exp(x)",
+      "op": ">=",
+      "rhs": "1 + x",
+      "variables": {
+       "x": "real"
+      }
+     },
+     "quote": null,
+     "id": "ac531c7345e3"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "sympy.minimum",
+    "summary": "정의역 Reals에서 양변 차의 하한 0 ≥ 0; 교차 확인으로 200개 표본에서 반례 없음",
+    "evidence": [
+     {
+      "description": "sympy 관계식 정리",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "relation": "-x + exp(x) - 1 >= 0"
+      }
+     },
+     {
+      "description": "정의역 위 하한",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "gap": "-x + exp(x) - 1",
+       "infimum": "0"
+      }
+     },
+     {
+      "description": "무작위 표본 검사",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "tested": 200,
+       "seed": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/optimization.yaml",
+   "title": "Adam 편향 보정과 기본 부등식",
+   "source": "https://arxiv.org/abs/1412.6980",
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_value",
+     "statement": "교차 엔트로피 2 nats는 퍼플렉시티 약 7.389에 해당한다 (PPL = e^CE)",
+     "params": {
+      "expr": "exp(2)",
+      "value": 7.389056,
+      "rel_tol": "1e-6"
+     },
+     "quote": null,
+     "id": "af820893b3b4"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "sympy.N",
+    "summary": "계산값 7.38905609893 vs 주장 7.389056 (상대오차 1.34e-08)",
+    "evidence": [
+     {
+      "description": "50자리 정밀도 계산",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "actual": "7.3890560989306502272",
+       "rel_err": 1.3388807584343507e-08
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/softmax.yaml",
+   "title": "소프트맥스와 log-sum-exp의 수치 안정화 항등식",
+   "source": "https://arxiv.org/abs/2205.14135",
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_identity",
+     "statement": "소프트맥스는 모든 로짓에 같은 상수를 더해도 변하지 않는다 (안정화 트릭의 근거)",
+     "params": {
+      "lhs": "exp(x + c) / (exp(x + c) + exp(y + c))",
+      "rhs": "exp(x) / (exp(x) + exp(y))",
+      "variables": {
+       "x": "real",
+       "y": "real",
+       "c": "real"
+      }
+     },
+     "quote": null,
+     "id": "feda1659bda8"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "sympy.simplify",
+    "summary": "기호적으로 lhs - rhs = 0 증명; 교차 확인으로 200개 표본에서 반례 없음",
+    "evidence": [
+     {
+      "description": "sympy 정리 결과 (lhs - rhs)",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "simplified": "0"
+      }
+     },
+     {
+      "description": "무작위 표본 검사",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "tested": 200,
+       "seed": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/softmax.yaml",
+   "title": "소프트맥스와 log-sum-exp의 수치 안정화 항등식",
+   "source": "https://arxiv.org/abs/2205.14135",
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_identity",
+     "statement": "log-sum-exp는 임의의 상수 c로 이동해 계산해도 같다",
+     "params": {
+      "lhs": "log(exp(a) + exp(b))",
+      "rhs": "c + log(exp(a - c) + exp(b - c))",
+      "variables": {
+       "a": "real",
+       "b": "real",
+       "c": "real"
+      }
+     },
+     "quote": null,
+     "id": "6a3148540923"
+    },
+    "verdict": "verified",
+    "tier": "internal",
+    "method": "sympy.simplify",
+    "summary": "기호적으로 lhs - rhs = 0 증명; 교차 확인으로 200개 표본에서 반례 없음",
+    "evidence": [
+     {
+      "description": "sympy 정리 결과 (lhs - rhs)",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "simplified": "0"
+      }
+     },
+     {
+      "description": "무작위 표본 검사",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "tested": 200,
+       "seed": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/math/softmax.yaml",
+   "title": "소프트맥스와 log-sum-exp의 수치 안정화 항등식",
+   "source": "https://arxiv.org/abs/2205.14135",
+   "item": null,
+   "expected": "refuted",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "math_identity",
+     "statement": "(의도적 반례) 온도 T로 로짓을 나눠도 소프트맥스 확률은 변하지 않는다",
+     "params": {
+      "lhs": "exp(x / T) / (exp(x / T) + exp(y / T))",
+      "rhs": "exp(x) / (exp(x) + exp(y))",
+      "variables": {
+       "x": "real",
+       "y": "real",
+       "T": "positive"
+      }
+     },
+     "quote": null,
+     "id": "fb1db655b838"
+    },
+    "verdict": "refuted",
+    "tier": "internal",
+    "method": "numeric-counterexample",
+    "summary": "반례 발견: {'x': '6.88843703050096323181605839636', 'y': '5.15908805880604859339655376971', 'T': '0.333756309814927765167169582128'}",
+    "evidence": [
+     {
+      "description": "sympy 정리 결과 (lhs - rhs)",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "simplified": "exp(x/T)/(exp(x/T) + exp(y/T)) - exp(x)/(exp(x) + exp(y))"
+      }
+     },
+     {
+      "description": "수치 반례",
+      "url": null,
+      "revision": null,
+      "retrieved_at": null,
+      "data": {
+       "point": {
+        "x": "6.88843703050096323181605839636",
+        "y": "5.15908805880604859339655376971",
+        "T": "0.333756309814927765167169582128"
+       },
+       "seed": 0
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_model_params",
+     "statement": "Qwen2.5-0.5B는 0.49B 파라미터",
+     "params": {
+      "repo": "Qwen/Qwen2.5-0.5B",
+      "value": "0.49B"
+     },
+     "quote": null,
+     "id": "c14c5f15529b"
+    },
+    "verdict": "verified",
+    "tier": "source",
+    "method": "hf_model_params",
+    "summary": "주장 490M vs safetensors 실측 494M (오차 0.82%, 허용 10%); 아키텍처 계산 494M와 실측 차이 0.00%",
+    "evidence": [
+     {
+      "description": "safetensors 헤더 집계 파라미터 수",
+      "url": "https://huggingface.co/api/models/Qwen/Qwen2.5-0.5B",
+      "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "retrieved_at": "2026-11-18T22:21:05+00:00",
+      "data": {
+       "total": 494032768,
+       "by_dtype": {
+        "BF16": 494032768
+       }
+      }
+     },
+     {
+      "description": "config.json 아키텍처로 독립 계산한 파라미터 수",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-0.5B/blob/060db6499f32faf8b98477b0a26969ef7d8b9987/config.json",
+      "revision": "060db6499f32faf8b98477b0a26969ef7d8b9987",
+      "retrieved_at": null,
+      "data": {
+       "total": 494032768,
+       "active": 494032768,
+       "non_embedding": 357898112
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_model_params",
+     "statement": "Mixtral 8x7B는 총 47B 파라미터 (arXiv:2401.04088)",
+     "params": {
+      "repo": "mistralai/Mixtral-8x7B-v0.1",
+      "value": "47B",
+      "scope": "total"
+     },
+     "quote": null,
+     "id": "43857573b14b"
+    },
+    "verdict": "verified",
+    "tier": "source",
+    "method": "hf_model_params",
+    "summary": "주장 47B vs safetensors 실측 46.7B (오차 0.63%, 허용 10%); 아키텍처 계산 46.7B와 실측 차이 0.00%",
+    "evidence": [
+     {
+      "description": "safetensors 헤더 집계 파라미터 수",
+      "url": "https://huggingface.co/api/models/mistralai/Mixtral-8x7B-v0.1",
+      "revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
+      "retrieved_at": "2026-11-18T22:21:05+00:00",
+      "data": {
+       "total": 46702792704,
+       "by_dtype": {
+        "BF16": 46702792704
+       }
+      }
+     },
+     {
+      "description": "config.json 아키텍처로 독립 계산한 파라미터 수",
+      "url": "https://huggingface.co/mistralai/Mixtral-8x7B-v0.1/blob/fc7ac94680e38d7348cfa806e51218e6273104b0/config.json",
+      "revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
+      "retrieved_at": null,
+      "data": {
+       "total": 46702792704,
+       "active": 12879925248,
+       "non_embedding": 46571720704
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_model_params",
+     "statement": "Mixtral 8x7B는 토큰당 13B 파라미터만 활성화한다 (arXiv:2401.04088)",
+     "params": {
+      "repo": "mistralai/Mixtral-8x7B-v0.1",
+      "value": "13B",
+      "scope": "active"
+     },
+     "quote": null,
+     "id": "bf4d12423bb3"
+    },
+    "verdict": "verified",
+    "tier": "source",
+    "method": "hf_model_params",
+    "summary": "주장 13B vs config 기반 활성 파라미터 12.9B (오차 0.92%, 허용 10%)",
+    "evidence": [
+     {
+      "description": "safetensors 헤더 집계 파라미터 수",
+      "url": "https://huggingface.co/api/models/mistralai/Mixtral-8x7B-v0.1",
+      "revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
+      "retrieved_at": "2026-11-18T22:21:05+00:00",
+      "data": {
+       "total": 46702792704,
+       "by_dtype": {
+        "BF16": 46702792704
+       }
+      }
+     },
+     {
+      "description": "config.json 아키텍처로 독립 계산한 파라미터 수",
+      "url": "https://huggingface.co/mistralai/Mixtral-8x7B-v0.1/blob/fc7ac94680e38d7348cfa806e51218e6273104b0/config.json",
+      "revision": "fc7ac94680e38d7348cfa806e51218e6273104b0",
+      "retrieved_at": null,
+      "data": {
+       "total": 46702792704,
+       "active": 12879925248,
+       "non_embedding": 46571720704
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_model_params",
+     "statement": "Qwen3-30B-A3B는 활성 파라미터 3B인 MoE",
+     "params": {
+      "repo": "Qwen/Qwen3-30B-A3B",
+      "value": "3B",
+      "scope": "active"
+     },
+     "quote": null,
+     "id": "ef31336900b7"
+    },
+    "verdict": "verified",
+    "tier": "source",
+    "method": "hf_model_params",
+    "summary": "주장 3B vs config 기반 활성 파라미터 3.35B (오차 11.77%, 허용 17%)",
+    "evidence": [
+     {
+      "description": "safetensors 헤더 집계 파라미터 수",
+      "url": "https://huggingface.co/api/models/Qwen/Qwen3-30B-A3B",
+      "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+      "retrieved_at": "2026-11-18T22:21:06+00:00",
+      "data": {
+       "total": 30532122624,
+       "by_dtype": {
+        "BF16": 30532122624
+       }
+      }
+     },
+     {
+      "description": "config.json 아키텍처로 독립 계산한 파라미터 수",
+      "url": "https://huggingface.co/Qwen/Qwen3-30B-A3B/blob/ad44e777bcd18fa416d9da3bd8f70d33ebb85d39/config.json",
+      "revision": "ad44e777bcd18fa416d9da3bd8f70d33ebb85d39",
+      "retrieved_at": null,
+      "data": {
+       "total": 30532122624,
+       "active": 3353032704,
+       "non_embedding": 30220957696
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "refuted",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_model_params",
+     "statement": "Gemma 7B는 7B 파라미터 모델 — 실제 가중치는 8.54B로 이름 표기와 다르다",
+     "params": {
+      "repo": "google/gemma-7b",
+      "value": "7B"
+     },
+     "quote": null,
+     "id": "5c18dd762cac"
+    },
+    "verdict": "refuted",
+    "tier": "source",
+    "method": "hf_model_params",
+    "summary": "주장 7B vs safetensors 실측 8.54B (오차 21.97%, 허용 10%)",
+    "evidence": [
+     {
+      "description": "safetensors 헤더 집계 파라미터 수",
+      "url": "https://huggingface.co/api/models/google/gemma-7b",
+      "revision": "ff6768d9368919a1f025a54f9f5aa0ee591730bb",
+      "retrieved_at": "2026-11-18T22:21:06+00:00",
+      "data": {
+       "total": 8537680896,
+       "by_dtype": {
+        "BF16": 8537680896
+       }
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "verified",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_model_context",
+     "statement": "SmolLM3-3B는 64K 컨텍스트를 지원한다",
+     "params": {
+      "repo": "HuggingFaceTB/SmolLM3-3B",
+      "value": "64K"
+     },
+     "quote": null,
+     "id": "600f35a6c6bc"
+    },
+    "verdict": "verified",
+    "tier": "source",
+    "method": "hf_model_context",
+    "summary": "주장 64K vs config 후보 ['65.5K'] — 일치",
+    "evidence": [
+     {
+      "description": "config.json의 위치 임베딩 길이와 RoPE 스케일링",
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B/blob/a07cc9a04f16550a088caea529712d1d335b0ac1/config.json",
+      "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+      "retrieved_at": null,
+      "data": {
+       "candidates": [
+        65536
+       ],
+       "rope_scaling": null
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "claims/models/model_sizes.yaml",
+   "title": "공개 모델의 크기·컨텍스트·훈련 토큰 주장 (HF Hub 원본 대조)",
+   "source": null,
+   "item": null,
+   "expected": "attested",
+   "as_expected": true,
+   "verification": {
+    "claim": {
+     "kind": "hf_training_tokens",
+     "statement": "SmolLM3-3B는 11T 토큰으로 훈련됐다",
+     "params": {
+      "repo": "HuggingFaceTB/SmolLM3-3B",
+      "value": "11T"
+     },
+     "quote": null,
+     "id": "a1a156a7cf34"
+    },
+    "verdict": "attested",
+    "tier": "source",
+    "method": "hf_training_tokens",
+    "summary": "주장 11T vs 카드 선언 ['11.2T']",
+    "evidence": [
+     {
+      "description": "모델 카드에 선언된 훈련 토큰 수",
+      "url": "https://huggingface.co/HuggingFaceTB/SmolLM3-3B/blob/a07cc9a04f16550a088caea529712d1d335b0ac1/README.md",
+      "revision": "a07cc9a04f16550a088caea529712d1d335b0ac1",
+      "retrieved_at": null,
+      "data": {
+       "declared": [
+        11200000000000.0
+       ]
+      }
+     }
+    ]
+   }
+  }
+ ]
+}
