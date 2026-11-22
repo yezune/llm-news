@@ -348,6 +348,7 @@
 "hf-model:harness-hub/Qwen3.8-27B-pi-adapted": "2026-11-19",
 "hf-model:iapp/OpenThai2.1-OCR-Markdown-20261118": "2026-11-19",
 "hf-model:inclusionAI/Ling-3.1-flash-1019": "2026-10-29",
+"hf-model:inclusionAI/LingSante-3.1-flash": "2026-11-23",
 "hf-model:maritaca-ai/S5-nano": "2026-11-11",
 "hf-model:meituan-longcat/LongCat-2.5": "2026-11-11",
 "hf-model:microsoft/Aion-1.0-Instruct-2.3B": "2026-11-20",
@@ -370,6 +371,7 @@
 "hf-model:tencent/WeVisOne-VL-4B": "2026-10-29",
 "hf-model:thinkingmachines/Inkling-2-Mini": "2026-11-21",
 "hf-model:thinkingmachines/Inkling-2-Small": "2026-11-14",
+"hf-model:thinkingmachines/TML-d24-varloop-research": "2026-11-23",
 "hf-model:voyager-so/shot-reader-8b": "2026-11-22",
 "hf-model:xtools-at/DeepSeek-V4-Pro-Qwen3.5-4B-UNCENSORED-heretic": "2026-11-16",
 "hf-model:xtools-at/DeepSeek-V4-Pro-Qwen3.5-9B-UNCENSORED-heretic": "2026-11-08",
@@ -463,8 +465,10 @@
 "url:d28967fce9c692cd": "2026-10-30",
 "url:d3f519557f32dd3d": "2026-10-24",
 "url:d42fb1eb3362412f": "2026-10-29",
+"url:de5cd1a6d51dc917": "2026-11-23",
 "url:e66e9796ba6be5e9": "2026-10-23",
 "url:ebd9eb94963902d2": "2026-11-17",
 "url:ed4b58253682640f": "2026-11-03",
-"url:edef63b51aedc012": "2026-10-23"
+"url:edef63b51aedc012": "2026-10-23",
+"url:f4784c30400364a2": "2026-11-23"
 }
